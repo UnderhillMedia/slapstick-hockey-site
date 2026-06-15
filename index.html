@@ -310,6 +310,7 @@
     transition:filter 0.2s;
   }
   .sponsor-tile:hover img{filter:grayscale(0) opacity(1);}
+  .sponsor-tile.logo-on-dark img{background:rgba(30,35,42,0.9);}
   .sponsor-tile.no-logo img{display:none;}
   @media(max-width:780px){ .sponsor-grid{grid-template-columns:repeat(2,1fr);} }
 
@@ -637,15 +638,14 @@
       <img src="logos/lakehour.svg" alt="Lake Hour">
       <span>Lake Hour</span>
     </div>
-    <div class="sponsor-tile">
-      <img src="logos/go4breakaway.png" alt="Breakaway Hockey Tournaments">
+    <div class="sponsor-tile no-logo">
       <span>Breakaway Hockey Tournaments</span>
     </div>
     <div class="sponsor-tile">
       <img src="logos/callytourneys.png" alt="Cally Hockey Tournaments">
       <span>Cally Hockey Tournaments</span>
     </div>
-    <div class="sponsor-tile">
+    <div class="sponsor-tile logo-on-dark">
       <img src="logos/coloradoextreme.webp" alt="Colorado Extreme">
       <span>Colorado Extreme</span>
     </div>
