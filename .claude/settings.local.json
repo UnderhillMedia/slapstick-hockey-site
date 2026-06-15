@@ -25,7 +25,9 @@
       "Bash(identify mensleaguesweaters.png)",
       "Bash(curl -sL \"https://static.wixstatic.com/media/ebc802_6c3d5fb0b9c24a5abe5e81e3196fa591~mv2.png\" -o go4breakaway.png)",
       "Bash(python3 -c ' *)",
-      "Bash(curl -s -L --max-time 8 \"https://www.go4breakaway.com/product-page/breakaway-bht-brand-logo-hoodie\")"
+      "Bash(curl -s -L --max-time 8 \"https://www.go4breakaway.com/product-page/breakaway-bht-brand-logo-hoodie\")",
+      "Bash(curl -s -L --max-time 8 \"https://www.nhlalumnioutdoorclassic.com\")",
+      "Bash(curl -sL \"https://images.squarespace-cdn.com/content/v1/671807a8f4c9782a9e32f112/f3b3fb2a-e81d-4287-9dad-fe4ca88bf684/KITSxNHL+Alumni_WhiteTransp.png\" -o nhlalumni.png)"
     ]
   }
 }
