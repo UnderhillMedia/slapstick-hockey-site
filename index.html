@@ -301,12 +301,15 @@
   }
   .sponsor-tile:hover{color:var(--off);background:var(--surface-2);}
   .sponsor-tile img{
-    max-width:100px;max-height:36px;
+    max-width:110px;max-height:44px;
     object-fit:contain;
-    filter:brightness(0) invert(0.5);
+    background:rgba(255,255,255,0.92);
+    padding:8px 12px;
+    border-radius:4px;
+    filter:grayscale(1) opacity(0.7);
     transition:filter 0.2s;
   }
-  .sponsor-tile:hover img{filter:brightness(0) invert(1);}
+  .sponsor-tile:hover img{filter:grayscale(0) opacity(1);}
   .sponsor-tile.no-logo img{display:none;}
   @media(max-width:780px){ .sponsor-grid{grid-template-columns:repeat(2,1fr);} }
 
@@ -619,7 +622,7 @@
   </div>
   <div class="sponsor-grid">
     <div class="sponsor-tile">
-      <img src="logos/underhillmedia.png" alt="Underhill Media">
+      <img src="logos/underhillmedia.webp" alt="Underhill Media">
       <span>Underhill Media</span>
     </div>
     <div class="sponsor-tile">
@@ -655,7 +658,7 @@
       <span>ATHL</span>
     </div>
     <div class="sponsor-tile">
-      <img src="logos/dawgnation.png" alt="DAWGS Nation Foundation">
+      <img src="logos/dawgnation.svg" alt="DAWGS Nation Foundation">
       <span>DAWGS Nation Foundation</span>
     </div>
     <div class="sponsor-tile no-logo">
