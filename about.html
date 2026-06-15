@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slapstick Hockey | About &amp; Team</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0D10;
+    --surface:#15181D;
+    --surface-2:#1B1F26;
+    --red:#D32E26;
+    --navy:#1B2A41;
+    --off:#F4F1EC;
+    --muted:#8A8F98;
+    --line:rgba(244,241,236,0.08);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--off);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Anton',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.02em;
+    line-height:1.05;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+
+  /* ===== NAV ===== */
+  header{
+    position:sticky;top:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 5%;
+    background:rgba(11,13,16,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand img{width:42px;height:42px;border-radius:50%;}
+  .brand span{font-family:'Anton',sans-serif;font-size:1.3rem;letter-spacing:0.06em;}
+  nav ul{display:flex;gap:32px;list-style:none;font-weight:600;font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;}
+  nav a{opacity:0.75;transition:opacity 0.2s, color 0.2s;}
+  nav a:hover{opacity:1;color:var(--red);}
+  .nav-cta{
+    background:var(--red);color:var(--off);
+    padding:10px 22px;border-radius:3px;
+    font-weight:800;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;
+    transition:filter 0.2s;
+  }
+  .nav-cta:hover{filter:brightness(1.15);}
+  .nav-wrap{display:flex;align-items:center;gap:40px;}
+  .hamburger{
+    display:none;flex-direction:column;justify-content:center;gap:5px;
+    width:36px;height:36px;background:none;border:none;cursor:pointer;padding:4px;
+  }
+  .hamburger span{
+    display:block;width:24px;height:2px;background:var(--off);border-radius:2px;
+    transition:transform 0.25s, opacity 0.25s;
+  }
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .mobile-nav{
+    position:relative;left:0;right:0;
+    background:rgba(11,13,16,0.97);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+    padding:0 5%;overflow:hidden;max-height:0;
+    transition:max-height 0.3s ease, padding 0.3s ease;
+    display:none;
+    z-index:49;
+  }
+  .mobile-nav ul{list-style:none;display:flex;flex-direction:column;gap:0;}
+  .mobile-nav li a{
+    display:block;padding:14px 0;
+    font-weight:700;font-size:0.95rem;letter-spacing:0.08em;text-transform:uppercase;
+    border-bottom:1px solid var(--line);opacity:0.8;
+    transition:opacity 0.2s,color 0.2s;
+  }
+  .mobile-nav li:last-child a{border-bottom:none;}
+  .mobile-nav li a:hover{opacity:1;color:var(--red);}
+  .mobile-nav .mobile-cta{
+    display:block;margin-top:18px;text-align:center;
+    background:var(--red);color:var(--off);
+    padding:14px;border-radius:3px;
+    font-weight:800;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;
+  }
+  @media(max-width:860px){
+    nav ul{display:none;}
+    .hamburger{display:flex;}
+    .nav-cta{display:none;}
+    .mobile-nav{display:block;}
+  }
+
+  /* ===== HERO ===== */
+  .hero-eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:0.78rem;font-weight:700;letter-spacing:0.2em;
+    color:var(--red);text-transform:uppercase;margin-bottom:22px;
+  }
+  .hero-eyebrow .dot{
+    width:8px;height:8px;border-radius:50%;background:var(--red);
+    box-shadow:0 0 0 0 rgba(211,46,38,0.6);
+    animation:pulse 2s infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(211,46,38,0.55);}
+    70%{box-shadow:0 0 0 12px rgba(211,46,38,0);}
+    100%{box-shadow:0 0 0 0 rgba(211,46,38,0);}
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:16px 30px;border-radius:3px;
+    font-weight:800;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;
+    transition:transform 0.2s, filter 0.2s;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--red);color:var(--off);}
+  .btn-primary:hover{filter:brightness(1.15);}
+  .btn-ghost{border:1px solid rgba(244,241,236,0.25);color:var(--off);}
+  .btn-ghost:hover{border-color:var(--off);}
+
+  /* ===== SECTION SHARED ===== */
+  section{padding:100px 5%;}
+  .section-head{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    margin-bottom:48px;flex-wrap:wrap;gap:20px;
+  }
+  .section-head h2{font-size:clamp(2rem,4vw,3rem);}
+  .section-head .label{
+    color:var(--red);font-weight:700;font-size:0.78rem;letter-spacing:0.2em;
+    text-transform:uppercase;display:block;margin-bottom:10px;
+  }
+  .label{
+    color:var(--red);font-weight:700;font-size:0.78rem;letter-spacing:0.2em;
+    text-transform:uppercase;display:block;margin-bottom:10px;
+  }
+
+  /* ===== ABOUT PAGE ===== */
+  .page-hero{
+    padding:160px 5% 60px;
+    background:radial-gradient(ellipse at 70% 0%, rgba(211,46,38,0.15), transparent 60%);
+  }
+  .page-hero h1{font-size:clamp(2.6rem,6vw,4.5rem);}
+  .page-hero h1 .accent{color:var(--red);}
+  .page-hero p{color:var(--muted);margin-top:18px;max-width:560px;font-size:1.05rem;line-height:1.7;}
+
+  .story-section{
+    display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+  }
+  .story-section h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:20px;}
+  .story-section p{color:var(--muted);line-height:1.8;margin-bottom:16px;font-size:1rem;}
+  .story-visual{
+    position:relative;
+    aspect-ratio:1/1;
+    border-radius:8px;
+    background:linear-gradient(135deg, rgba(211,46,38,0.18), var(--surface) 70%);
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+  }
+  .story-visual .badge-glow-sm{
+    position:absolute;width:260px;height:260px;border-radius:50%;
+    background:radial-gradient(circle, rgba(211,46,38,0.3), transparent 70%);
+    filter:blur(10px);
+  }
+  .story-visual img.logo-placeholder{
+    position:relative;z-index:2;width:min(220px,60%);border-radius:50%;
+    box-shadow:0 0 0 1px rgba(244,241,236,0.06), 0 30px 80px rgba(0,0,0,0.6);
+  }
+  @media(max-width:860px){ .story-section{grid-template-columns:1fr;gap:36px;} }
+
+  .team-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  }
+  .team-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:6px;
+    overflow:hidden;
+    transition:border-color 0.25s, transform 0.25s;
+  }
+  .team-card:hover{border-color:rgba(211,46,38,0.4);transform:translateY(-4px);}
+  .team-photo{
+    aspect-ratio:1/1;
+    background:linear-gradient(135deg, var(--navy), #0f1722);
+    position:relative;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .team-photo::after{
+    content:"";position:absolute;inset:0;
+    background:repeating-linear-gradient(135deg, rgba(244,241,236,0.03) 0 2px, transparent 2px 14px);
+  }
+  .team-photo img{
+    width:100%;height:100%;object-fit:cover;position:relative;z-index:2;
+  }
+  .team-initials{
+    position:relative;z-index:2;
+    font-family:'Anton',sans-serif;font-size:3rem;color:var(--red);
+    opacity:0.7;
+  }
+  .team-info{padding:20px 22px 24px;}
+  .team-info h3{
+    font-family:'Inter',sans-serif;font-weight:800;font-size:1.05rem;
+    text-transform:none;letter-spacing:0;margin-bottom:6px;
+  }
+  .team-info .roles{
+    color:var(--red);font-size:0.75rem;font-weight:800;letter-spacing:0.1em;
+    text-transform:uppercase;line-height:1.6;
+  }
+  @media(max-width:860px){ .team-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:600px){ .team-grid{grid-template-columns:1fr;} }
+
+  /* ===== FOOTER ===== */
+  footer{
+    border-top:1px solid var(--line);
+    padding:60px 5% 40px;
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;
+  }
+  .footer-brand{display:flex;align-items:center;gap:14px;}
+  .footer-brand img{width:46px;height:46px;border-radius:50%;}
+  .footer-brand .name{font-family:'Anton',sans-serif;font-size:1.2rem;letter-spacing:0.06em;}
+  .footer-brand .tag{color:var(--muted);font-size:0.85rem;margin-top:2px;}
+  .social-row{display:flex;gap:18px;}
+  .social-row a{
+    width:40px;height:40px;border-radius:50%;
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    font-size:0.8rem;font-weight:800;
+    transition:border-color 0.2s,color 0.2s;
+  }
+  .social-row a:hover{border-color:var(--red);color:var(--red);}
+  .copyright{
+    width:100%;text-align:center;color:var(--muted);
+    font-size:0.78rem;margin-top:30px;letter-spacing:0.04em;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <a href="index.html" class="brand">
+      <img src="logo.jpeg" alt="Slapstick Hockey logo">
+      <span>Slapstick Hockey</span>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html#offer">What We Offer</a></li>
+        <li><a href="events.html">Schedule</a></li>
+        <li><a href="about.html" style="opacity:1;color:var(--red);">About</a></li>
+        <li><a href="index.html#partners">Partners</a></li>
+        <li><a href="index.html#videos">Watch</a></li>
+        <li><a href="index.html#shop">Shop</a></li>
+      </ul>
+    </nav>
+  </div>
+  <a href="index.html#contact" class="nav-cta">Partner With Us</a>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<nav class="mobile-nav" id="mobile-nav">
+  <ul>
+    <li><a href="index.html#offer" onclick="closeMobileNav()">What We Offer</a></li>
+    <li><a href="events.html" onclick="closeMobileNav()">Schedule</a></li>
+    <li><a href="about.html" onclick="closeMobileNav()">About</a></li>
+    <li><a href="index.html#partners" onclick="closeMobileNav()">Partners</a></li>
+    <li><a href="index.html#videos" onclick="closeMobileNav()">Watch</a></li>
+    <li><a href="index.html#shop" onclick="closeMobileNav()">Shop</a></li>
+  </ul>
+  <a href="index.html#contact" class="mobile-cta" onclick="closeMobileNav()">Partner With Us</a>
+</nav>
+<script>
+  function toggleMobileNav(){
+    var btn = document.getElementById('hamburger');
+    var menu = document.getElementById('mobile-nav');
+    if(btn.classList.contains('open')){ closeMobileNav(); } else {
+      btn.classList.add('open');
+      menu.style.maxHeight = '400px';
+      menu.style.padding = '20px 5% 24px';
+    }
+  }
+  function closeMobileNav(){
+    var btn = document.getElementById('hamburger');
+    var menu = document.getElementById('mobile-nav');
+    btn.classList.remove('open');
+    menu.style.maxHeight = '0';
+    menu.style.padding = '0 5%';
+  }
+</script>
+
+<section class="page-hero">
+  <span class="hero-eyebrow"><span class="dot"></span> The Team Behind The Bench</span>
+  <h1>Hockey's funniest<br>broadcast started<br>as a <span class="accent">passion project.</span></h1>
+  <p>Slapstick Hockey began as a way to share the funniest, weirdest, and most human moments in the game — the stuff that never makes the highlight reel anywhere else. What started as a passion project has grown into a content brand built by people who genuinely love hockey and love making people laugh.</p>
+</section>
+
+<section style="padding-top:0;">
+  <div class="story-section">
+    <div>
+      <span class="label">Our Story</span>
+      <h2>From the stands to your feed</h2>
+      <p>Slapstick Hockey started as a hobby — a way to capture the chaos, comedy, and chemistry that happens at the rink and share it with anyone who'd watch. No big studio, no big budget, just a camera, a mic, and a love for the game.</p>
+      <p>Over time, that hobby turned into a real content brand. We've covered local tournaments, charity games, and league nights, built partnerships with hockey brands and organizations, and grown a community of fans who show up for the laughs as much as the highlights.</p>
+      <p>We're still doing what we started doing — just with better gear and a bigger crew.</p>
+    </div>
+    <div class="story-visual">
+      <div class="badge-glow-sm"></div>
+      <img src="logo.jpeg" alt="Slapstick Hockey logo" class="logo-placeholder">
+    </div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="section-head">
+    <div>
+      <span class="label">Meet The Crew</span>
+      <h2>Contributors</h2>
+    </div>
+  </div>
+  <div class="team-grid">
+
+    <div class="team-card">
+      <div class="team-photo"><span class="team-initials">NH</span></div>
+      <div class="team-info">
+        <h3>Nate Harber</h3>
+        <div class="roles">Owner &amp; Founder</div>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo"><span class="team-initials">GS</span></div>
+      <div class="team-info">
+        <h3>Guy Schafer</h3>
+        <div class="roles">Color Commentator<br>PA Announcer<br>Contributor</div>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo"><span class="team-initials">JM</span></div>
+      <div class="team-info">
+        <h3>Jacob Murphy</h3>
+        <div class="roles">Lead Play-by-Play Commentator<br>Contributor</div>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo"><span class="team-initials">LD</span></div>
+      <div class="team-info">
+        <h3>Landon Dixon</h3>
+        <div class="roles">Writer<br>Color Commentator<br>Contributor</div>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo"><span class="team-initials">JS</span></div>
+      <div class="team-info">
+        <h3>Joe Sanderson</h3>
+        <div class="roles">Content Creator<br>Host<br>Contributor</div>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo"><span class="team-initials">MS</span></div>
+      <div class="team-info">
+        <h3>Mitch Stewart</h3>
+        <div class="roles">Play-by-Play Commentator<br>Writer<br>Podcast Director<br>Contributor</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">
+    <img src="logo.jpeg" alt="Slapstick Hockey logo">
+    <div>
+      <div class="name">Slapstick Hockey</div>
+      <div class="tag">Hockey's funniest broadcast</div>
+    </div>
+  </div>
+  <div class="social-row">
+    <a href="https://www.instagram.com/slapstickhockey/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+    <a href="https://www.tiktok.com/@slapstickhockey" target="_blank" rel="noopener" aria-label="TikTok">TT</a>
+    <a href="https://www.youtube.com/@SlapstickHockey" target="_blank" rel="noopener" aria-label="YouTube">YT</a>
+    <a href="https://www.facebook.com/people/Slapstick-Hockey/61586169273482/" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
+  </div>
+  <div class="copyright">&copy; 2026 Slapstick Hockey. A production of Underhill Media.</div>
+</footer>
+
+</body>
+</html>
