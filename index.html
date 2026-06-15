@@ -560,42 +560,61 @@
     <a href="https://www.youtube.com/@SlapstickHockey" target="_blank" class="view-all">View All</a>
   </div>
   <div class="video-grid" id="video-grid">
-
-    <a href="https://www.youtube.com/@SlapstickHockey" target="_blank" rel="noopener" class="video-card">
+    <div class="video-card video-card-placeholder">
       <div class="thumb">
         <span class="platform-tag">YouTube</span>
         <div class="play-btn"></div>
       </div>
       <div class="video-meta">
-        <h3>Latest from Slapstick Hockey</h3>
-        <div class="stat"><span>Watch on YouTube</span></div>
+        <h3>Loading latest videos&hellip;</h3>
+        <div class="stat"><span>&nbsp;</span></div>
       </div>
-    </a>
-
-    <a href="https://www.youtube.com/@SlapstickHockey" target="_blank" rel="noopener" class="video-card">
-      <div class="thumb">
-        <span class="platform-tag">YouTube</span>
-        <div class="play-btn"></div>
-      </div>
-      <div class="video-meta">
-        <h3>Event Highlights &amp; Recaps</h3>
-        <div class="stat"><span>Watch on YouTube</span></div>
-      </div>
-    </a>
-
-    <a href="https://www.youtube.com/@SlapstickHockey" target="_blank" rel="noopener" class="video-card">
-      <div class="thumb">
-        <span class="platform-tag">YouTube</span>
-        <div class="play-btn"></div>
-      </div>
-      <div class="video-meta">
-        <h3>Partner &amp; Charity Coverage</h3>
-        <div class="stat"><span>Watch on YouTube</span></div>
-      </div>
-    </a>
-
+    </div>
   </div>
 </section>
+
+<script>
+  const YT_API_KEY = "AIzaSyDo-ZgoCTImUYcqTLEVdYt7HvYdo3OWQnU";
+  const YT_UPLOADS_PLAYLIST_ID = "UUdWWFkL6onDbY4RJbeB_Kxw";
+  const YT_MAX_RESULTS = 6;
+
+  async function loadLatestVideos(){
+    const grid = document.getElementById('video-grid');
+    try{
+      const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=${YT_MAX_RESULTS}&playlistId=${YT_UPLOADS_PLAYLIST_ID}&key=${YT_API_KEY}`;
+      const res = await fetch(url);
+      const data = await res.json();
+      if(!data.items || !data.items.length) return;
+
+      grid.innerHTML = '';
+      data.items.forEach(item => {
+        const sn = item.snippet;
+        const videoId = sn.resourceId.videoId;
+        const thumb = sn.thumbnails.high?.url || sn.thumbnails.medium?.url;
+        const published = new Date(sn.publishedAt).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+
+        const card = document.createElement('a');
+        card.href = `https://www.youtube.com/watch?v=${videoId}`;
+        card.target = '_blank';
+        card.rel = 'noopener';
+        card.className = 'video-card';
+        card.innerHTML = `
+          <div class="thumb" style="background-image:url('${thumb}');background-size:cover;background-position:center;">
+            <span class="platform-tag">YouTube</span>
+            <div class="play-btn"></div>
+          </div>
+          <div class="video-meta">
+            <h3>${sn.title}</h3>
+            <div class="stat"><span>${published}</span></div>
+          </div>`;
+        grid.appendChild(card);
+      });
+    }catch(e){
+      console.error('Could not load YouTube videos', e);
+    }
+  }
+  loadLatestVideos();
+</script>
 
 <section style="padding-top:0;">
   <div class="split">
