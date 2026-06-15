@@ -293,12 +293,21 @@
   .sponsor-tile{
     background:var(--bg);
     aspect-ratio:2/1;
-    display:flex;align-items:center;justify-content:center;
-    color:var(--muted);font-weight:800;font-size:0.85rem;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+    color:var(--muted);font-weight:800;font-size:0.75rem;
     letter-spacing:0.08em;text-transform:uppercase;
     transition:color 0.2s, background 0.2s;
+    padding:16px;
   }
   .sponsor-tile:hover{color:var(--off);background:var(--surface-2);}
+  .sponsor-tile img{
+    max-width:100px;max-height:36px;
+    object-fit:contain;
+    filter:brightness(0) invert(0.5);
+    transition:filter 0.2s;
+  }
+  .sponsor-tile:hover img{filter:brightness(0) invert(1);}
+  .sponsor-tile.no-logo img{display:none;}
   @media(max-width:780px){ .sponsor-grid{grid-template-columns:repeat(2,1fr);} }
 
   /* ===== OFFER CARDS ===== */
@@ -609,17 +618,49 @@
     </div>
   </div>
   <div class="sponsor-grid">
-    <div class="sponsor-tile">Underhill Media</div>
-    <div class="sponsor-tile">Men's League Sweaters</div>
-    <div class="sponsor-tile">Pro Stock Hockey</div>
-    <div class="sponsor-tile">Lake Hour</div>
-    <div class="sponsor-tile">Breakaway Hockey Tournaments</div>
-    <div class="sponsor-tile">Cally Hockey Tournaments</div>
-    <div class="sponsor-tile">Colorado Extreme</div>
-    <div class="sponsor-tile">True Hockey</div>
-    <div class="sponsor-tile">ATHL</div>
-    <div class="sponsor-tile">DAWGS Nation Foundation</div>
-    <div class="sponsor-tile">Your Brand Here</div>
+    <div class="sponsor-tile">
+      <img src="logos/underhillmedia.png" alt="Underhill Media">
+      <span>Underhill Media</span>
+    </div>
+    <div class="sponsor-tile">
+      <img src="logos/mensleaguesweaters.png" alt="Men's League Sweaters">
+      <span>Men's League Sweaters</span>
+    </div>
+    <div class="sponsor-tile">
+      <img src="logos/prostockhockey.png" alt="Pro Stock Hockey">
+      <span>Pro Stock Hockey</span>
+    </div>
+    <div class="sponsor-tile">
+      <img src="logos/lakehour.svg" alt="Lake Hour">
+      <span>Lake Hour</span>
+    </div>
+    <div class="sponsor-tile">
+      <img src="logos/go4breakaway.png" alt="Breakaway Hockey Tournaments">
+      <span>Breakaway Hockey Tournaments</span>
+    </div>
+    <div class="sponsor-tile">
+      <img src="logos/callytourneys.png" alt="Cally Hockey Tournaments">
+      <span>Cally Hockey Tournaments</span>
+    </div>
+    <div class="sponsor-tile">
+      <img src="logos/coloradoextreme.webp" alt="Colorado Extreme">
+      <span>Colorado Extreme</span>
+    </div>
+    <div class="sponsor-tile">
+      <img src="logos/truehockey.png" alt="True Hockey">
+      <span>True Hockey</span>
+    </div>
+    <div class="sponsor-tile">
+      <img src="logos/athl.svg" alt="ATHL">
+      <span>ATHL</span>
+    </div>
+    <div class="sponsor-tile">
+      <img src="logos/dawgnation.png" alt="DAWGS Nation Foundation">
+      <span>DAWGS Nation Foundation</span>
+    </div>
+    <div class="sponsor-tile no-logo">
+      <span>Your Brand Here</span>
+    </div>
   </div>
 </section>
 
