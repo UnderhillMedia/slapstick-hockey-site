@@ -114,7 +114,46 @@
   }
   .nav-cta:hover{filter:brightness(1.15);}
   .nav-wrap{display:flex;align-items:center;gap:40px;}
-  @media(max-width:860px){ nav ul{display:none;} }
+  .hamburger{
+    display:none;flex-direction:column;justify-content:center;gap:5px;
+    width:36px;height:36px;background:none;border:none;cursor:pointer;padding:4px;
+  }
+  .hamburger span{
+    display:block;width:24px;height:2px;background:var(--off);border-radius:2px;
+    transition:transform 0.25s, opacity 0.25s;
+  }
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .mobile-nav{
+    position:relative;left:0;right:0;
+    background:rgba(11,13,16,0.97);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+    padding:0 5%;overflow:hidden;max-height:0;
+    transition:max-height 0.3s ease, padding 0.3s ease;
+    display:none;
+  }
+  .mobile-nav ul{list-style:none;display:flex;flex-direction:column;gap:0;}
+  .mobile-nav li a{
+    display:block;padding:14px 0;
+    font-weight:700;font-size:0.95rem;letter-spacing:0.08em;text-transform:uppercase;
+    border-bottom:1px solid var(--line);opacity:0.8;
+    transition:opacity 0.2s,color 0.2s;
+  }
+  .mobile-nav li:last-child a{border-bottom:none;}
+  .mobile-nav li a:hover{opacity:1;color:var(--red);}
+  .mobile-nav .mobile-cta{
+    display:block;margin-top:18px;text-align:center;
+    background:var(--red);color:var(--off);
+    padding:14px;border-radius:3px;
+    font-weight:800;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;
+  }
+  @media(max-width:860px){
+    nav ul{display:none;}
+    .hamburger{display:flex;}
+    .nav-cta{display:none;}
+    .mobile-nav{display:block;}
+  }
 
   /* ===== HERO ===== */
   .hero{
@@ -567,6 +606,8 @@
       <ul>
         <li><a href="index.html#offer">What We Offer</a></li>
         <li><a href="events.html" style="opacity:1;color:var(--red);">Schedule</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
         <li><a href="index.html#partners">Partners</a></li>
         <li><a href="index.html#videos">Watch</a></li>
         <li><a href="index.html#shop">Shop</a></li>
@@ -574,7 +615,41 @@
     </nav>
   </div>
   <a href="#inquiry" class="nav-cta">Book Us</a>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </button>
 </header>
+<nav class="mobile-nav" id="mobile-nav">
+  <ul>
+    <li><a href="index.html#offer" onclick="closeMobileNav()">What We Offer</a></li>
+    <li><a href="events.html" onclick="closeMobileNav()" style="color:var(--red);">Schedule</a></li>
+    <li><a href="about.html" onclick="closeMobileNav()">About</a></li>
+    <li><a href="blog.html" onclick="closeMobileNav()">Blog</a></li>
+    <li><a href="index.html#partners" onclick="closeMobileNav()">Partners</a></li>
+    <li><a href="index.html#videos" onclick="closeMobileNav()">Watch</a></li>
+    <li><a href="index.html#shop" onclick="closeMobileNav()">Shop</a></li>
+  </ul>
+  <a href="#inquiry" class="mobile-cta" onclick="closeMobileNav()">Book Us</a>
+</nav>
+<script>
+  function toggleMobileNav(){
+    var btn = document.getElementById('hamburger');
+    var menu = document.getElementById('mobile-nav');
+    var isOpen = btn.classList.contains('open');
+    if(isOpen){ closeMobileNav(); } else {
+      btn.classList.add('open');
+      menu.style.maxHeight = '440px';
+      menu.style.padding = '20px 5% 24px';
+    }
+  }
+  function closeMobileNav(){
+    var btn = document.getElementById('hamburger');
+    var menu = document.getElementById('mobile-nav');
+    btn.classList.remove('open');
+    menu.style.maxHeight = '0';
+    menu.style.padding = '0 5%';
+  }
+</script>
 
 <section class="page-hero">
   <span class="hero-eyebrow"><span class="dot"></span> 2026 Season</span>

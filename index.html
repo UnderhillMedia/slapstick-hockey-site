@@ -494,19 +494,47 @@
   .offer-card p{color:var(--muted);font-size:0.92rem;line-height:1.65;}
   @media(max-width:860px){ .offer-grid{grid-template-columns:1fr;} }
 
-  /* ===== CONTACT ===== */
+  /* ===== CONTACT / BOOK FORM ===== */
   .contact-section{
     background:linear-gradient(135deg, rgba(211,46,38,0.12), var(--surface) 80%);
     border-top:1px solid var(--line);
     border-bottom:1px solid var(--line);
   }
   .contact-inner{
-    display:flex;align-items:center;justify-content:space-between;
-    gap:40px;flex-wrap:wrap;
+    max-width:800px;margin:0 auto;
   }
   .contact-inner h2{font-size:clamp(2rem,4vw,3rem);margin:10px 0 14px;}
-  .contact-inner p{color:var(--muted);max-width:480px;line-height:1.65;}
-  @media(max-width:780px){ .contact-inner{text-align:center;justify-content:center;} .contact-inner p{margin:0 auto;} }
+  .contact-inner p{color:var(--muted);max-width:600px;line-height:1.65;margin-bottom:40px;}
+  .book-form{width:100%;display:flex;flex-direction:column;gap:20px;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .form-group{display:flex;flex-direction:column;gap:8px;}
+  .form-group label{font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);}
+  .form-group input,
+  .form-group select,
+  .form-group textarea{
+    background:var(--surface);
+    border:1px solid rgba(244,241,236,0.12);
+    border-radius:4px;
+    color:var(--off);
+    font-family:'Inter',sans-serif;
+    font-size:0.95rem;
+    padding:14px 16px;
+    outline:none;
+    transition:border-color 0.2s;
+    width:100%;
+    -webkit-appearance:none;
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder{color:var(--muted);}
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus{border-color:var(--red);}
+  .form-group select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A8F98' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px;}
+  .form-group select option{background:var(--surface);color:var(--off);}
+  .form-group textarea{resize:vertical;min-height:130px;}
+  .form-submit{background:var(--red);color:var(--off);border:none;cursor:pointer;font-family:'Inter',sans-serif;width:100%;justify-content:center;font-size:1rem;}
+  .form-submit:hover{filter:brightness(1.15);}
+  @media(max-width:640px){.form-row{grid-template-columns:1fr;}}
 
 
   /* ===== EVENT TEASER ===== */
@@ -597,6 +625,7 @@
         <li><a href="#offer">What We Offer</a></li>
         <li><a href="events.html">Schedule</a></li>
         <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
         <li><a href="#partners">Partners</a></li>
         <li><a href="#videos">Watch</a></li>
         <li><a href="#shop">Shop</a></li>
@@ -613,6 +642,7 @@
     <li><a href="#offer" onclick="closeMobileNav()">What We Offer</a></li>
     <li><a href="events.html" onclick="closeMobileNav()">Schedule</a></li>
     <li><a href="about.html" onclick="closeMobileNav()">About</a></li>
+    <li><a href="blog.html" onclick="closeMobileNav()">Blog</a></li>
     <li><a href="#partners" onclick="closeMobileNav()">Partners</a></li>
     <li><a href="#videos" onclick="closeMobileNav()">Watch</a></li>
     <li><a href="#shop" onclick="closeMobileNav()">Shop</a></li>
@@ -948,12 +978,46 @@
 
 <section id="contact" class="contact-section">
   <div class="contact-inner">
-    <div>
-      <span class="label">Let's Talk</span>
-      <h2>Want to work with us?</h2>
-      <p>Whether it's product promotion, event coverage, or telling your charity's story, send us a few details and we'll get back to you.</p>
-    </div>
-    <a href="mailto:info@underhillmedia.com" class="btn btn-primary">Email Us</a>
+    <span class="label">Let's Talk</span>
+    <h2>Book Us or Partner With Us</h2>
+    <p>Planning a hockey tournament? Looking for event media coverage? Want to get your brand in front of 80K+ hockey fans? Fill out the form below and we'll get back to you within 24 hours.</p>
+    <form action="https://formsubmit.co/info@underhillmedia.com" method="POST" class="book-form">
+      <input type="hidden" name="_subject" value="New Slapstick Hockey Inquiry — slapstickhockey.com">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://slapstickhockey.com/?sent=1">
+      <input type="hidden" name="_template" value="table">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="f-name">Your Name *</label>
+          <input type="text" id="f-name" name="name" required placeholder="John Smith">
+        </div>
+        <div class="form-group">
+          <label for="f-email">Email *</label>
+          <input type="email" id="f-email" name="email" required placeholder="john@example.com">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="f-phone">Phone</label>
+          <input type="tel" id="f-phone" name="phone" placeholder="(555) 000-0000">
+        </div>
+        <div class="form-group">
+          <label for="f-type">Inquiry Type *</label>
+          <select id="f-type" name="inquiry_type" required>
+            <option value="">Select one…</option>
+            <option value="Event Coverage / Tournament">Event Coverage / Tournament</option>
+            <option value="Brand Sponsorship">Brand Sponsorship</option>
+            <option value="Charity Partnership">Charity Partnership</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="f-msg">Tell us about your event or inquiry *</label>
+        <textarea id="f-msg" name="message" required rows="5" placeholder="Share your event dates, location, what you're looking for, and any other details…"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary form-submit">Send Inquiry →</button>
+    </form>
   </div>
 </section>
 
