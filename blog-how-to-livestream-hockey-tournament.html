@@ -59,12 +59,12 @@
   .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
   .mobile-nav{position:relative;left:0;right:0;background:rgba(11,13,16,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:0 5%;overflow:hidden;max-height:0;transition:max-height 0.3s ease,padding 0.3s ease;display:none;}
   .mobile-nav ul{list-style:none;display:flex;flex-direction:column;gap:0;}
-  .mobile-nav li a{display:block;padding:14px 0;font-weight:700;font-size:0.95rem;letter-spacing:0.08em;text-transform:uppercase;border-bottom:1px solid var(--line);opacity:0.8;}
+  .mobile-nav li a{display:block;padding:14px 0;font-weight:700;font-size:0.95rem;letter-spacing:0.08em;text-transform:uppercase;border-bottom:1px solid var(--line);opacity:0.8;transition:opacity 0.2s,color 0.2s;}
   .mobile-nav li:last-child a{border-bottom:none;}
+  .mobile-nav li a:hover{opacity:1;color:var(--red);}
   .mobile-nav .mobile-cta{display:block;margin-top:18px;text-align:center;background:var(--red);color:var(--off);padding:14px;border-radius:3px;font-weight:800;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;}
   @media(max-width:860px){nav ul{display:none;}.hamburger{display:flex;}.nav-cta{display:none;}.mobile-nav{display:block;}}
 
-  /* ARTICLE */
   .article-hero{padding:100px 5% 60px;background:radial-gradient(ellipse at 70% 0%, rgba(211,46,38,0.12), transparent 60%);}
   .article-hero .back-link{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:0.82rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:28px;transition:color 0.2s;}
   .article-hero .back-link:hover{color:var(--red);}
@@ -157,84 +157,60 @@
 
 <div class="article-body">
 
-  <p>We've covered hockey tournaments in ballparks, convention centers, frozen ponds, and indoor rinks with ceilings so low you had to keep the camera on a monopod. After enough events, you learn fast what actually matters when you're trying to stream a hockey tournament live — and what you thought mattered but doesn't.</p>
+  <p>We've streamed hockey tournaments in ballparks, convention centers, frozen ponds, and indoor rinks with ceilings so low you had to keep the camera on a monopod. After enough events, you learn fast what actually matters — and what you thought mattered but doesn't.</p>
 
-  <p>This is the honest guide we wish we'd had when we started. No fluff, no gear-list padding. Just what you need to make a hockey livestream actually work.</p>
+  <p>Here's the honest truth: simplicity is your best friend. You don't need a broadcast truck or a rack of gear to produce a great hockey livestream. We've done it with two people. The key is knowing what actually moves the needle and not overcomplicating the rest.</p>
 
-  <h2>Step 1: Understand the Environment Before You Show Up</h2>
+  <h2>The Minimum Viable Crew</h2>
 
-  <p>Hockey rinks are one of the hardest venues to broadcast from. The glass reflects light, the ice creates glare, and the ambient noise from a crowd echoes off concrete and steel in ways that will absolutely destroy your audio if you're not prepared.</p>
+  <p>Our full production setup runs four people — two on-air personalities, one to two camera operators, and a livestream producer managing the technical side. But we've run lean events with just two: one on-air personality and one camera operator. That's it. Everything else is a bonus.</p>
 
-  <p>Before you commit to a setup, find out:</p>
-  <ul>
-    <li><strong>Is there hardwired internet at the scorer's table or production area?</strong> This is the most important question. Cellular backup is good insurance, but you don't want to bet a 3-hour stream on LTE.</li>
-    <li><strong>Where can you position a camera that gives you a full-ice view?</strong> Most indoor rinks have a press box or elevated section. If not, you're working with what you can mount or tripod-position at ice level.</li>
-    <li><strong>What's the power situation?</strong> You need outlets for your encoder, mixer, and at minimum one camera. Figure this out before day-of.</li>
-  </ul>
+  <p>Volunteers can fill gaps too. If you have someone reliable who can help manage cables, watch monitors, or run a second camera, use them. You don't have to have a full paid crew to put out a solid stream. Work with what you have and build from there.</p>
 
-  <h2>Step 2: The Minimum Viable Streaming Kit</h2>
-
-  <p>You don't need a broadcast truck to livestream a hockey tournament. Here's a solid setup that won't break the bank but will produce a watchable stream:</p>
+  <h2>The Gear That Actually Matters</h2>
 
   <h3>Camera</h3>
-  <p>A Sony ZV-E10, Canon EOS M50 Mark II, or similar mirrorless camera with a clean HDMI out is your starting point. If you can get a 70-200mm lens (or equivalent), use it — you need reach for full-ice coverage from a fixed position. A wide lens at rink level will capture mostly stick handles and boards.</p>
+  <p>We shoot on the <strong>Sony FX30</strong>. It's a cinema-grade camera in a compact body — great image quality, handles low light well (which matters in rinks), and gives you a clean output for streaming. You don't need to match that camera to get started, but invest in something that gives you a clean HDMI signal and can handle the lighting conditions of an indoor rink.</p>
 
-  <h3>Capture Card</h3>
-  <p>An Elgato Cam Link 4K or AVerMedia Live Gamer Portable 2 Plus takes the HDMI signal from your camera into your laptop. This is your bridge between the camera and the streaming software.</p>
+  <h3>Streaming Software</h3>
+  <p><strong>OBS Studio</strong> is what we use and what we recommend. It's free, it's powerful, and it's the industry standard for independent sports broadcasters. It handles your scene switching, graphics overlays, audio mixing, and direct stream output to YouTube all in one place. Learn OBS well and you can produce a professional-looking stream without spending a dollar on software.</p>
 
-  <h3>Encoding Software</h3>
-  <p>OBS Studio is free, powerful, and what most broadcasters use. Set your output to 1080p at 30fps minimum, with a bitrate of 4,500–6,000 kbps if your upload speed allows it. For a multi-rink tournament, you'll need a separate encoder and laptop for each simultaneous stream.</p>
-
-  <h3>Audio</h3>
-  <p>This is where most tournament streams fall apart. On-camera microphones pick up everything — the Zamboni, the announcer from three rinks over, a toddler three rows back. You have two real options:</p>
-  <ul>
-    <li>A wired shotgun mic (like the Rode VideoMicro) mounted on your camera, pointed at the ice</li>
-    <li>A direct feed from the rink's PA system into your mixer, if they have one and are willing to share it</li>
-  </ul>
-  <p>Option 2 is almost always better. Ask the tournament organizer if they have a PA board and whether you can tap it. Most are happy to help.</p>
+  <h3>Platform</h3>
+  <p>We stream to <strong>YouTube Live</strong>. It's free, it saves the VOD automatically so families can rewatch after the fact, and it's the easiest platform for sharing — you send one link and anyone can watch on any device. Set up your stream key and event page at least 24 hours before game day. YouTube has a review window for newer channels before live streaming is enabled, and you don't want to find that out the morning of.</p>
 
   <h3>Internet</h3>
-  <p>You need a minimum upload speed of 10 Mbps for a 1080p stream. 20+ is comfortable. Always run a speed test at the venue before the event, not in your office the week before. Rink WiFi is often unreliable — ask about hardwired ethernet access or bring a cellular hotspot as backup.</p>
+  <p>Use ethernet whenever possible. WiFi at rinks is inconsistent for obvious reasons — you're in a metal building, often with hundreds of people on the same network, and the access points are rarely positioned for broadcast production. A hardwired connection is more stable and gives you the consistent upload speed a live stream needs. Always ask the venue about ethernet access when you're scouting the location. If ethernet isn't an option, a dedicated cellular hotspot is your backup — just don't rely on the rink's public WiFi as your primary connection.</p>
 
-  <h2>Step 3: Choose Your Streaming Platform</h2>
+  <h2>Before You Go Live</h2>
 
-  <p>YouTube Live is the default choice for most tournament coverage and for good reason — it's free, it saves the VOD automatically, and it's easy for families to share the link. Facebook Live is a close second for community-built tournaments where most of the audience is already in a Facebook group. Twitch works if you have a gaming-adjacent audience but isn't where most hockey families naturally land.</p>
+  <p>Arrive early. You need time to set up, run a test stream, and catch problems before they happen on air. Here's what to check:</p>
+
+  <ul>
+    <li>Run your ethernet connection and confirm your upload speed</li>
+    <li>Get your camera positioned for full-ice coverage and lock in your focus manually — the glass will confuse auto-focus constantly</li>
+    <li>Test your audio levels in the actual rink environment, not in a quiet room</li>
+    <li>Do a short test stream and watch it back on your phone from across the rink — you'll catch things on a viewer device you'll miss on your production screen</li>
+  </ul>
 
   <div class="callout">
-    <p><strong>Pro tip:</strong> Set up your YouTube stream key and event page at least 24 hours in advance. YouTube has a review window for new channels before they can go live, and nothing is worse than showing up game-day and finding out you're not approved yet.</p>
+    <p><strong>The glass is your enemy.</strong> Tempered glass panels reflect light and throw off auto-focus. Switch to manual focus once you've found your plane and leave it there. Check it between periods — camera vibration and bumps can shift it over time.</p>
   </div>
 
-  <h2>Step 4: On the Day — What to Expect</h2>
+  <h2>Keep It Simple</h2>
 
-  <p>Plan to arrive at least 90 minutes before the first puck drop. You need time to:</p>
-  <ul>
-    <li>Run your internet speed test and set up the hardwire if available</li>
-    <li>Position and focus your camera (the glass will affect auto-focus — manual is better)</li>
-    <li>Test your audio levels with the rink's ambient noise</li>
-    <li>Do a 5-minute test stream and check it on a phone from across the rink</li>
-  </ul>
+  <p>The biggest mistake first-time hockey streamers make is trying to do too much at once. Graphics packages, multi-camera switching, scoreboard overlays, live stats — none of that matters if your stream is buffering or your audio is clipping. Get the fundamentals right first: stable internet, clean video, good audio, and someone who can call the game with energy. Build complexity on top of a solid foundation, not the other way around.</p>
 
-  <p>The test stream from a second device is critical. You will miss things on your encoder screen that are obviously broken when you actually watch the stream. Encoding artifacts, audio sync issues, and framing problems all show up immediately on a viewer device.</p>
+  <p>A two-person stream with great audio and a steady camera will always beat a six-person production with technical problems. Simplicity wins every time.</p>
 
-  <h2>Common Mistakes to Avoid</h2>
+  <h2>When to Bring in a Professional Team</h2>
 
-  <ul>
-    <li><strong>Relying entirely on WiFi.</strong> Always have a cellular backup. Always.</li>
-    <li><strong>Auto-focus through the glass.</strong> The tempered glass panels will confuse your camera constantly. Switch to manual focus once you've found your plane.</li>
-    <li><strong>Not accounting for rink lighting.</strong> Many arena lighting setups are designed for the ice surface, not for cameras. Bring a color profile that handles the green/yellow fluorescent cast, or plan to correct in post.</li>
-    <li><strong>Forgetting to monitor audio throughout.</strong> Check your levels between periods. Crowd noise and PA systems shift as the arena fills and empties.</li>
-    <li><strong>One person doing everything.</strong> Cameras, audio, stream monitoring, and commentary is a four-person job. Start with just video and audio on the stream — commentary can come later when you have the bandwidth.</li>
-  </ul>
+  <p>There's a point where a tournament outgrows a volunteer setup — multiple rinks streaming simultaneously, live commentary, sponsor integration, social media content alongside the stream. At that point, the cost of a professional media team is almost always less than the cost of a failed stream that your event's reputation takes the hit for.</p>
 
-  <h2>When to Just Hire Someone</h2>
-
-  <p>There's a point where the complexity of a multi-rink tournament with simultaneous streams and live commentary is genuinely beyond a volunteer setup — and that's okay. Professional hockey media teams exist specifically for this, and the cost of hiring one is almost always less than the cost of a failed stream that your tournament's reputation takes the hit for.</p>
-
-  <p>If you're running more than one rink simultaneously, need live commentary, want social media content alongside the stream, or are hosting a high-profile event, consider bringing in a dedicated media team rather than DIYing it with borrowed gear and volunteers.</p>
+  <p>If you're running a multi-rink event, need branded graphics and overlays, or want content that lives beyond the stream itself, it's worth the conversation.</p>
 
   <div class="article-cta">
     <h2>Need a team that's done this before?</h2>
-    <p>Slapstick Hockey has covered tournaments from Alabama to Missouri to Colorado. We bring the cameras, the crew, and the broadcast — you focus on the event.</p>
+    <p>We've covered tournaments from Alabama to Missouri to Colorado — with a full crew or lean and mean. Tell us about your event and let's figure out what coverage makes sense.</p>
     <a href="index.html#contact" class="btn btn-primary">Get in Touch</a>
   </div>
 
