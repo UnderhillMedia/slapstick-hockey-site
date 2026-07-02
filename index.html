@@ -191,13 +191,7 @@
       radial-gradient(ellipse at 70% 40%, rgba(211,46,38,0.18), transparent 60%),
       linear-gradient(180deg, #0B0D10 0%, #0B0D10 70%, #0e1116 100%);
   }
-  .hero::before{
-    content:"";
-    position:absolute;inset:0;
-    background:
-      repeating-linear-gradient(115deg, rgba(244,241,236,0.025) 0px, rgba(244,241,236,0.025) 1px, transparent 1px, transparent 90px);
-    pointer-events:none;
-  }
+  /* hero::before removed — replaced by .hero-parallax-* layers in JS */
   .hero-inner{
     position:relative;z-index:2;
     width:100%;
@@ -683,17 +677,26 @@
 </script>
 
 <section class="hero">
+  <div class="hero-parallax-glow"></div>
+  <div class="hero-parallax-lines"></div>
+  <!-- SVG decorative deco in hero -->
+  <div class="deco-layer" aria-hidden="true">
+    <svg class="deco-stick" data-rot="-22" style="width:70px;top:8%;right:12%;color:var(--off);" aria-hidden="true"><use href="#ico-stick"/></svg>
+    <svg class="deco-stick" data-rot="15" style="width:50px;top:55%;right:5%;color:var(--red);" aria-hidden="true"><use href="#ico-stick"/></svg>
+    <svg class="deco-mic" data-rot="10" style="width:45px;top:70%;right:22%;color:var(--off);" aria-hidden="true"><use href="#ico-mic"/></svg>
+    <svg class="deco-puck" style="width:60px;top:30%;right:8%;color:var(--off);" aria-hidden="true"><use href="#ico-puck"/></svg>
+  </div>
   <div class="hero-inner">
     <div>
-      <span class="hero-eyebrow"><span class="dot"></span> Available For Partnerships &middot; 2026 Season</span>
-      <h1>Your brand,<br>on the<br><span class="accent">broadcast.</span></h1>
-      <p>Slapstick Hockey reaches 80K+ hockey fans across Instagram, TikTok, YouTube and Facebook. We promote products, cover events on location, and tell your charity's story to an audience that's already showing up.</p>
-      <div class="hero-ctas">
+      <span class="hero-eyebrow" data-reveal><span class="dot"></span> Available For Partnerships &middot; 2026 Season</span>
+      <h1 data-reveal style="transition-delay:0.1s">Your brand,<br>on the<br><span class="accent">broadcast.</span></h1>
+      <p data-reveal style="transition-delay:0.2s">Slapstick Hockey reaches 80K+ hockey fans across Instagram, TikTok, YouTube and Facebook. We promote products, cover events on location, and tell your charity's story to an audience that's already showing up.</p>
+      <div class="hero-ctas" data-reveal style="transition-delay:0.32s">
         <a href="#contact" class="btn btn-primary">Partner With Us</a>
         <a href="#videos" class="btn btn-ghost">See Our Work</a>
       </div>
     </div>
-    <div class="hero-badge-wrap">
+    <div class="hero-badge-wrap" data-reveal="scale" style="transition-delay:0.15s">
       <div class="badge-glow"></div>
       <div class="on-air-ring"></div>
       <img src="logo.jpeg" alt="Slapstick Hockey badge">
@@ -706,7 +709,7 @@
 </div>
 
 <div class="stats">
-  <div class="stats-inner">
+  <div class="stats-inner" data-stagger>
     <div>
       <div class="stat-num">48K</div>
       <div class="stat-label">Instagram Followers</div>
@@ -726,14 +729,18 @@
   </div>
 </div>
 
-<section id="offer">
-  <div class="section-head">
+<section id="offer" style="position:relative;overflow:hidden;">
+  <div class="deco-layer" aria-hidden="true">
+    <svg class="deco-stick" data-rot="35" style="width:55px;bottom:10%;left:2%;color:var(--red);" aria-hidden="true"><use href="#ico-stick"/></svg>
+    <svg class="deco-puck" style="width:70px;top:20%;left:1%;color:var(--off);" aria-hidden="true"><use href="#ico-puck"/></svg>
+  </div>
+  <div class="section-head" data-reveal>
     <div>
       <span class="label">Work With Us</span>
-      <h2>What we offer</h2>
+      <h2><span class="heading-underline">What we offer</span></h2>
     </div>
   </div>
-  <div class="offer-grid">
+  <div class="offer-grid" data-stagger>
     <div class="offer-card">
       <span class="offer-num">Product Promotion</span>
       <h3>Get your brand in the feed</h3>
@@ -753,13 +760,13 @@
 </section>
 
 <section id="featured">
-  <div class="section-head">
+  <div class="section-head" data-reveal>
     <div>
       <span class="label">Must Watch</span>
-      <h2>Featured Videos</h2>
+      <h2><span class="heading-underline">Featured Videos</span></h2>
     </div>
   </div>
-  <div class="featured-grid">
+  <div class="featured-grid" data-stagger>
 
     <a href="https://www.youtube.com/watch?v=VhGGY6XcN74" target="_blank" rel="noopener" class="featured-card featured-main">
       <div class="featured-thumb" style="background-image:url('https://img.youtube.com/vi/VhGGY6XcN74/hqdefault.jpg');">
@@ -797,15 +804,18 @@
   </div>
 </section>
 
-<section id="upcoming">
-  <div class="section-head">
+<section id="upcoming" style="position:relative;overflow:hidden;">
+  <div class="deco-layer" aria-hidden="true">
+    <svg class="deco-mic" data-rot="-15" style="width:40px;top:10%;right:3%;color:var(--red);" aria-hidden="true"><use href="#ico-mic"/></svg>
+  </div>
+  <div class="section-head" data-reveal>
     <div>
       <span class="label">On The Road</span>
-      <h2>Where we're headed</h2>
+      <h2><span class="heading-underline">Where we're headed</span></h2>
     </div>
     <a href="events.html" class="view-all">Full Schedule</a>
   </div>
-  <div class="event-teaser-grid">
+  <div class="event-teaser-grid" data-stagger>
     <div class="event-teaser">
       <div class="event-date">
         <span class="month">Jul</span>
@@ -832,10 +842,10 @@
 </section>
 
 <section id="videos">
-  <div class="section-head">
+  <div class="section-head" data-reveal>
     <div>
       <span class="label">Latest Drops</span>
-      <h2>Fresh off the ice</h2>
+      <h2><span class="heading-underline">Fresh off the ice</span></h2>
     </div>
     <a href="https://www.youtube.com/@SlapstickHockey" target="_blank" class="view-all">View All</a>
   </div>
@@ -897,7 +907,7 @@
 </script>
 
 <section style="padding-top:0;">
-  <div class="split">
+  <div class="split" data-stagger>
     <div class="split-card watch" id="about">
       <span class="tag">Our Story</span>
       <h3>Started in<br>the stands</h3>
@@ -914,13 +924,13 @@
 </section>
 
 <section id="partners">
-  <div class="section-head">
+  <div class="section-head" data-reveal>
     <div>
       <span class="label">Trusted By</span>
-      <h2>Our partners</h2>
+      <h2><span class="heading-underline">Our partners</span></h2>
     </div>
   </div>
-  <div class="sponsor-grid">
+  <div class="sponsor-grid" data-stagger>
     <div class="sponsor-tile logo-on-dark">
       <img src="logos/Underhill Media White.png" alt="Underhill Media">
       <span>Underhill Media</span>
@@ -982,12 +992,51 @@
   </div>
 </section>
 
+<!-- ===== STICKY ON-AIR SECTION ===== -->
+<div class="on-air-sticky-wrap" id="on-air-sticky-wrap">
+  <div class="on-air-sticky">
+    <div class="deco-layer" aria-hidden="true">
+      <svg class="deco-stick" data-rot="-30" style="width:80px;top:5%;left:4%;color:var(--off);" aria-hidden="true"><use href="#ico-stick"/></svg>
+      <svg class="deco-stick" data-rot="20" style="width:60px;bottom:8%;right:4%;color:var(--red);" aria-hidden="true"><use href="#ico-stick"/></svg>
+      <svg class="deco-mic" data-rot="-8" style="width:50px;bottom:15%;left:8%;color:var(--off);" aria-hidden="true"><use href="#ico-mic"/></svg>
+      <svg class="deco-mic" data-rot="12" style="width:38px;top:15%;right:8%;color:var(--red);" aria-hidden="true"><use href="#ico-mic"/></svg>
+      <svg class="deco-puck" style="width:90px;bottom:30%;right:12%;color:var(--off);" aria-hidden="true"><use href="#ico-puck"/></svg>
+      <svg class="deco-puck" style="width:60px;top:40%;left:3%;color:var(--red);" aria-hidden="true"><use href="#ico-puck"/></svg>
+    </div>
+    <div class="on-air-content">
+      <div class="on-air-badge"><span class="dot"></span> We Are Slapstick Hockey</div>
+      <h2 style="font-size:clamp(2.4rem,7vw,5.5rem);">Hockey's<br><span style="color:var(--red);">funniest broadcast.</span></h2>
+      <div class="on-air-stat-line">
+        <div class="oas-item">
+          <div class="oas-num">80K<span style="font-size:0.5em;color:var(--muted);">+</span></div>
+          <div class="oas-label">Fans</div>
+        </div>
+        <div class="oas-item">
+          <div class="oas-num">10M<span style="font-size:0.5em;color:var(--muted);">+</span></div>
+          <div class="oas-label">Views — One Event</div>
+        </div>
+        <div class="oas-item">
+          <div class="oas-num">4K</div>
+          <div class="oas-label">Production</div>
+        </div>
+      </div>
+    </div>
+    <!-- These lines float up as you scroll through the section -->
+    <div class="on-air-scroll-items" id="oas-lines" aria-hidden="true">
+      <div class="oas-reveal-line">Cameras on location.</div>
+      <div class="oas-reveal-line">Live commentary. <span class="accent">Live audience.</span></div>
+      <div class="oas-reveal-line">Clips that hit <span class="accent">hundreds of thousands</span> of views.</div>
+      <div class="oas-reveal-line" style="font-size:clamp(1rem,2.5vw,1.8rem);color:var(--muted);font-family:'Inter',sans-serif;text-transform:none;letter-spacing:0;font-weight:600;">Your event. Our broadcast. Everyone wins.</div>
+    </div>
+  </div>
+</div>
+
 <section id="contact" class="contact-section">
   <div class="contact-inner">
-    <span class="label">Let's Talk</span>
-    <h2>Book Us or Partner With Us</h2>
-    <p>Planning a hockey tournament? Looking for event media coverage? Want to get your brand in front of 80K+ hockey fans? Fill out the form below and we'll get back to you within 24 hours.</p>
-    <form action="https://formsubmit.co/info@underhillmedia.com" method="POST" class="book-form">
+    <span class="label" data-reveal>Let's Talk</span>
+    <h2 data-reveal style="transition-delay:0.1s">Book Us or Partner With Us</h2>
+    <p data-reveal style="transition-delay:0.2s">Planning a hockey tournament? Looking for event media coverage? Want to get your brand in front of 80K+ hockey fans? Fill out the form below and we'll get back to you within 24 hours.</p>
+    <form data-reveal style="transition-delay:0.3s" action="https://formsubmit.co/info@underhillmedia.com" method="POST" class="book-form">
       <input type="hidden" name="_subject" value="New Slapstick Hockey Inquiry — slapstickhockey.com">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_next" value="https://slapstickhockey.com/?sent=1">
@@ -1043,6 +1092,322 @@
   </div>
   <div class="copyright">&copy; 2026 Slapstick Hockey. A production of Underhill Media.</div>
 </footer>
+
+
+<!-- ============================================================
+     DYNAMIC ANIMATIONS — scroll reveals, counters, parallax,
+     SVG decorations, sticky on-air section
+     All wrapped in prefers-reduced-motion guard
+============================================================ -->
+<style>
+/* ---- Reveal system ---- */
+[data-reveal]{
+  opacity:0;
+  transform:translateY(36px);
+  transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
+}
+[data-reveal="left"]{transform:translateX(-40px);}
+[data-reveal="right"]{transform:translateX(40px);}
+[data-reveal="scale"]{transform:scale(0.92);opacity:0;}
+[data-reveal].is-visible{opacity:1;transform:none;}
+/* stagger children */
+[data-stagger]>*{
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1);
+}
+[data-stagger].is-visible>*:nth-child(1){transition-delay:0ms;}
+[data-stagger].is-visible>*:nth-child(2){transition-delay:80ms;}
+[data-stagger].is-visible>*:nth-child(3){transition-delay:160ms;}
+[data-stagger].is-visible>*:nth-child(4){transition-delay:240ms;}
+[data-stagger].is-visible>*:nth-child(5){transition-delay:320ms;}
+[data-stagger].is-visible>*:nth-child(6){transition-delay:400ms;}
+[data-stagger].is-visible>*:nth-child(7){transition-delay:480ms;}
+[data-stagger].is-visible>*:nth-child(8){transition-delay:560ms;}
+[data-stagger].is-visible>*:nth-child(9){transition-delay:640ms;}
+[data-stagger].is-visible>*:nth-child(10){transition-delay:720ms;}
+[data-stagger].is-visible>*:nth-child(11){transition-delay:800ms;}
+[data-stagger].is-visible>*:nth-child(12){transition-delay:880ms;}
+[data-stagger].is-visible>*{opacity:1;transform:none;}
+
+/* ---- Parallax hero layers ---- */
+.hero-parallax-glow{
+  position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:radial-gradient(ellipse at 70% 40%, rgba(211,46,38,0.22), transparent 60%);
+  will-change:transform;
+}
+.hero-parallax-lines{
+  position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:repeating-linear-gradient(115deg,rgba(244,241,236,0.025) 0px,rgba(244,241,236,0.025) 1px,transparent 1px,transparent 90px);
+  will-change:transform;
+}
+
+/* ---- SVG decoration layer ---- */
+.deco-layer{
+  position:absolute;inset:0;pointer-events:none;overflow:hidden;
+  z-index:0;
+}
+.deco-stick,.deco-mic,.deco-puck{
+  position:absolute;
+  opacity:0.06;
+  will-change:transform;
+}
+
+/* ---- Sticky on-air section ---- */
+.on-air-sticky-wrap{
+  position:relative;
+  height:320vh; /* scroll travel */
+}
+.on-air-sticky{
+  position:sticky;
+  top:0;
+  height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+  background:#0B0D10;
+}
+.on-air-sticky::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 50%, rgba(211,46,38,0.18), transparent 65%);
+  pointer-events:none;
+}
+.on-air-content{
+  position:relative;z-index:2;
+  text-align:center;
+  max-width:800px;
+  padding:0 5%;
+}
+.on-air-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:0.75rem;font-weight:700;letter-spacing:0.25em;
+  color:var(--red);text-transform:uppercase;
+  border:1px solid rgba(211,46,38,0.4);
+  padding:8px 18px;border-radius:100px;
+  margin-bottom:32px;
+  animation:pulse-border 2s infinite;
+}
+@keyframes pulse-border{
+  0%,100%{box-shadow:0 0 0 0 rgba(211,46,38,0.3);}
+  50%{box-shadow:0 0 0 8px rgba(211,46,38,0);}
+}
+.on-air-badge .dot{
+  width:7px;height:7px;border-radius:50%;background:var(--red);
+  animation:pulse 1.5s infinite;
+}
+.on-air-stat-line{
+  display:flex;justify-content:center;align-items:center;
+  gap:0;margin-top:48px;flex-wrap:wrap;
+}
+.oas-item{
+  padding:0 40px;
+  border-right:1px solid var(--line);
+  text-align:center;
+}
+.oas-item:last-child{border-right:none;}
+.oas-num{
+  font-family:'Anton',sans-serif;
+  font-size:clamp(2.2rem,5vw,3.8rem);
+  color:var(--red);
+  line-height:1;
+}
+.oas-label{
+  font-size:0.72rem;font-weight:700;
+  letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--muted);margin-top:8px;
+}
+.on-air-scroll-items{
+  position:absolute;
+  bottom:10%;left:0;right:0;
+  display:flex;flex-direction:column;
+  align-items:center;gap:20px;
+  pointer-events:none;
+  z-index:3;
+}
+.oas-reveal-line{
+  font-family:'Anton',sans-serif;
+  font-size:clamp(1.4rem,4vw,3rem);
+  text-transform:uppercase;
+  letter-spacing:0.04em;
+  opacity:0;
+  transform:translateY(30px);
+  transition:opacity 0.6s ease, transform 0.6s ease;
+  text-align:center;
+  padding:0 5%;
+}
+.oas-reveal-line .accent{color:var(--red);}
+.oas-reveal-line.show{opacity:1;transform:translateY(0);}
+
+@media(max-width:600px){
+  .oas-item{padding:0 20px;}
+  .on-air-stat-line{gap:0;}
+}
+
+/* ---- Line draw on headings ---- */
+.heading-underline{
+  display:inline-block;
+  position:relative;
+}
+.heading-underline::after{
+  content:"";
+  position:absolute;bottom:-4px;left:0;
+  height:3px;width:0%;background:var(--red);border-radius:2px;
+  transition:width 0.8s cubic-bezier(0.22,1,0.36,1) 0.3s;
+}
+.heading-underline.is-visible::after{width:100%;}
+
+/* ---- Reduced motion: disable everything ---- */
+@media(prefers-reduced-motion:reduce){
+  [data-reveal],[data-stagger]>*{
+    opacity:1;transform:none;transition:none;
+  }
+  .on-air-sticky-wrap{height:auto;}
+  .on-air-sticky{position:relative;height:auto;padding:100px 5%;}
+  .oas-reveal-line{opacity:1;transform:none;transition:none;}
+  .deco-stick,.deco-mic,.deco-puck{display:none;}
+  .heading-underline::after{transition:none;width:100%;}
+}
+</style>
+
+<script>
+(function(){
+  /* skip if user prefers reduced motion */
+  const reduced = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  /* ============================================================
+     1. INTERSECTION OBSERVER — reveal + stagger
+  ============================================================ */
+  if(!reduced){
+    const revealEls = document.querySelectorAll('[data-reveal]');
+    const staggerEls = document.querySelectorAll('[data-stagger]');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('is-visible');
+          io.unobserve(e.target);
+        }
+      });
+    },{threshold:0.12});
+    revealEls.forEach(el=>io.observe(el));
+    staggerEls.forEach(el=>io.observe(el));
+
+    /* heading underline observer */
+    const hlEls = document.querySelectorAll('.heading-underline');
+    const hlIo = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');hlIo.unobserve(e.target);}});
+    },{threshold:0.5});
+    hlEls.forEach(el=>hlIo.observe(el));
+  }
+
+  /* ============================================================
+     2. COUNTER ANIMATION for stat numbers
+  ============================================================ */
+  function animateCounter(el){
+    const raw = el.textContent.trim(); // e.g. "48K", "6.6K", "1.5K"
+    const match = raw.match(/^([\d.]+)([A-Za-z+%]*)$/);
+    if(!match) return;
+    const target = parseFloat(match[1]);
+    const suffix = match[2];
+    const isDecimal = match[1].includes('.');
+    const duration = 1400;
+    const start = performance.now();
+    function tick(now){
+      const t = Math.min((now-start)/duration,1);
+      const ease = 1-Math.pow(1-t,3); // ease out cubic
+      const val = target * ease;
+      el.textContent = (isDecimal ? val.toFixed(1) : Math.round(val)) + suffix;
+      if(t<1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  const statNums = document.querySelectorAll('.stat-num');
+  if(!reduced && statNums.length){
+    const cio = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          animateCounter(e.target);
+          cio.unobserve(e.target);
+        }
+      });
+    },{threshold:0.5});
+    statNums.forEach(el=>cio.observe(el));
+  }
+
+  /* ============================================================
+     3. PARALLAX — hero glow + lines
+  ============================================================ */
+  if(!reduced){
+    const glow = document.querySelector('.hero-parallax-glow');
+    const lines = document.querySelector('.hero-parallax-lines');
+    function onScroll(){
+      const y = window.scrollY;
+      if(glow)  glow.style.transform  = `translateY(${y*0.35}px)`;
+      if(lines) lines.style.transform = `translateY(${y*0.18}px)`;
+      /* parallax on SVG deco items */
+      document.querySelectorAll('.deco-stick').forEach((el,i)=>{
+        el.style.transform=`translateY(${y*(0.08+i*0.04)}px) rotate(${parseFloat(el.dataset.rot||0)+y*0.02}deg)`;
+      });
+      document.querySelectorAll('.deco-mic').forEach((el,i)=>{
+        el.style.transform=`translateY(${-y*(0.06+i*0.03)}px) rotate(${parseFloat(el.dataset.rot||0)-y*0.015}deg)`;
+      });
+      document.querySelectorAll('.deco-puck').forEach(el=>{
+        el.style.transform=`translateY(${y*0.12}px)`;
+      });
+    }
+    window.addEventListener('scroll',onScroll,{passive:true});
+    onScroll();
+  }
+
+  /* ============================================================
+     4. STICKY ON-AIR section reveal lines
+  ============================================================ */
+  if(!reduced){
+    const wrap = document.getElementById('on-air-sticky-wrap');
+    const lines2 = document.querySelectorAll('#oas-lines .oas-reveal-line');
+    if(wrap && lines2.length){
+      function onScrollOA(){
+        const rect = wrap.getBoundingClientRect();
+        const wh = window.innerHeight;
+        /* how far into the scroll travel are we? 0→1 */
+        const totalTravel = wrap.offsetHeight - wh;
+        const scrolled = -rect.top;
+        const progress = Math.max(0,Math.min(1, scrolled/totalTravel));
+        /* show lines progressively */
+        const step = 1/(lines2.length+1);
+        lines2.forEach((ln,i)=>{
+          ln.classList.toggle('show', progress > step*(i+1));
+        });
+      }
+      window.addEventListener('scroll',onScrollOA,{passive:true});
+      onScrollOA();
+    }
+  }
+
+})();
+</script>
+
+<!-- SVG Hockey Stick inline symbol (reusable) -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <!-- Hockey stick: vertical shaft + blade -->
+    <symbol id="ico-stick" viewBox="0 0 60 200">
+      <rect x="26" y="0" width="8" height="160" rx="4" fill="currentColor"/>
+      <rect x="6" y="148" width="48" height="10" rx="4" fill="currentColor"/>
+      <rect x="6" y="148" width="10" height="28" rx="4" fill="currentColor"/>
+    </symbol>
+    <!-- Microphone -->
+    <symbol id="ico-mic" viewBox="0 0 60 200">
+      <rect x="22" y="0" width="16" height="80" rx="8" fill="currentColor"/>
+      <path d="M10 60 Q10 110 30 110 Q50 110 50 60" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+      <rect x="26" y="110" width="8" height="50" fill="currentColor"/>
+      <rect x="12" y="160" width="36" height="6" rx="3" fill="currentColor"/>
+    </symbol>
+    <!-- Puck -->
+    <symbol id="ico-puck" viewBox="0 0 80 30">
+      <ellipse cx="40" cy="15" rx="38" ry="13" fill="currentColor"/>
+    </symbol>
+  </defs>
+</svg>
 
 </body>
 </html>
