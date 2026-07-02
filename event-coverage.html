@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Coverage | Slapstick Hockey — Live Broadcast for Tournaments, Charity Games & Alumni Events</title>
+<meta name="description" content="Slapstick Hockey brings professional-grade live coverage to hockey tournaments, charity games, and alumni events. 4K cameras, live commentary, and social clips that rack up hundreds of thousands of views.">
+<meta name="keywords" content="hockey event coverage, hockey tournament live stream, hire hockey broadcaster, charity hockey game coverage, alumni hockey game broadcast, hockey media team, hockey video production, live hockey broadcast">
+<link rel="canonical" href="https://slapstickhockey.com/event-coverage">
+
+<meta property="og:title" content="Event Coverage | Slapstick Hockey">
+<meta property="og:description" content="We bring cameras, live commentary, and social content to your tournament, charity game, or alumni event. Clips in the hundreds of thousands of views.">
+<meta property="og:image" content="https://slapstickhockey.com/logo.jpeg">
+<meta property="og:url" content="https://slapstickhockey.com/event-coverage">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Slapstick Hockey">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Event Coverage | Slapstick Hockey">
+<meta name="twitter:description" content="We bring cameras, live commentary, and social content to your tournament, charity game, or alumni event.">
+<meta name="twitter:image" content="https://slapstickhockey.com/logo.jpeg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Hockey Event Coverage",
+  "provider": {
+    "@type": "Organization",
+    "name": "Slapstick Hockey",
+    "url": "https://slapstickhockey.com",
+    "logo": "https://slapstickhockey.com/logo.jpeg"
+  },
+  "serviceType": "Live Event Broadcast & Video Production",
+  "description": "Professional live broadcast and content creation for hockey tournaments, charity games, and alumni events. Includes 4K camera production, live commentary, social media clips, and sponsor integration.",
+  "url": "https://slapstickhockey.com/event-coverage",
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0D10;
+    --surface:#15181D;
+    --surface-2:#1B1F26;
+    --red:#D32E26;
+    --navy:#1B2A41;
+    --off:#F4F1EC;
+    --muted:#8A8F98;
+    --line:rgba(244,241,236,0.08);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+  body{
+    background:var(--bg);
+    color:var(--off);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Anton',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.02em;
+    line-height:1.05;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+
+  /* Focus states */
+  :focus-visible{
+    outline:2px solid var(--red);
+    outline-offset:3px;
+    border-radius:2px;
+  }
+
+  /* ===== NAV ===== */
+  header{
+    position:sticky;top:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 5%;
+    background:rgba(11,13,16,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand img{width:42px;height:42px;border-radius:50%;}
+  .brand span{font-family:'Anton',sans-serif;font-size:1.3rem;letter-spacing:0.06em;}
+  nav ul{display:flex;gap:32px;list-style:none;font-weight:600;font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;}
+  nav a{opacity:0.75;transition:opacity 0.2s, color 0.2s;}
+  nav a:hover{opacity:1;color:var(--red);}
+  nav a.active{opacity:1;color:var(--red);}
+  .nav-cta{
+    background:var(--red);color:var(--off);
+    padding:10px 22px;border-radius:3px;
+    font-weight:800;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;
+    transition:filter 0.2s;
+  }
+  .nav-cta:hover{filter:brightness(1.15);}
+  .nav-wrap{display:flex;align-items:center;gap:40px;}
+  .hamburger{
+    display:none;flex-direction:column;justify-content:center;gap:5px;
+    width:36px;height:36px;background:none;border:none;cursor:pointer;padding:4px;
+  }
+  .hamburger span{
+    display:block;width:24px;height:2px;background:var(--off);border-radius:2px;
+    transition:transform 0.25s, opacity 0.25s;
+  }
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .mobile-nav{
+    position:relative;left:0;right:0;
+    background:rgba(11,13,16,0.97);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+    padding:0 5%;overflow:hidden;max-height:0;
+    transition:max-height 0.3s ease, padding 0.3s ease;
+    display:none;
+    z-index:49;
+  }
+  .mobile-nav.open{max-height:400px;padding:20px 5% 24px;}
+  .mobile-nav ul{list-style:none;display:flex;flex-direction:column;gap:0;}
+  .mobile-nav li a{
+    display:block;padding:14px 0;
+    font-weight:700;font-size:0.95rem;letter-spacing:0.08em;text-transform:uppercase;
+    border-bottom:1px solid var(--line);opacity:0.8;
+    transition:opacity 0.2s,color 0.2s;
+  }
+  .mobile-nav li:last-child a{border-bottom:none;}
+  .mobile-nav li a:hover{opacity:1;color:var(--red);}
+  .mobile-nav .mobile-cta{
+    display:block;margin-top:18px;text-align:center;
+    background:var(--red);color:var(--off);
+    padding:14px;border-radius:3px;
+    font-weight:800;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;
+  }
+  @media(max-width:860px){
+    nav ul{display:none;}
+    .hamburger{display:flex;}
+    .nav-cta{display:none;}
+    .mobile-nav{display:block;}
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    min-height:80vh;
+    display:flex;align-items:center;
+    overflow:hidden;
+    background:
+      radial-gradient(ellipse at 65% 45%, rgba(211,46,38,0.2), transparent 55%),
+      linear-gradient(180deg, #0B0D10 0%, #0B0D10 70%, #0e1116 100%);
+  }
+  .hero::before{
+    content:"";
+    position:absolute;inset:0;
+    background:
+      repeating-linear-gradient(115deg, rgba(244,241,236,0.025) 0px, rgba(244,241,236,0.025) 1px, transparent 1px, transparent 90px);
+    pointer-events:none;
+  }
+  .hero-inner{
+    position:relative;z-index:2;
+    width:100%;
+    max-width:900px;
+    padding:80px 5%;
+  }
+  .hero-eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:0.78rem;font-weight:700;letter-spacing:0.2em;
+    color:var(--red);text-transform:uppercase;margin-bottom:22px;
+  }
+  .hero-eyebrow .dot{
+    width:8px;height:8px;border-radius:50%;background:var(--red);
+    box-shadow:0 0 0 0 rgba(211,46,38,0.6);
+    animation:pulse 2s infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(211,46,38,0.55);}
+    70%{box-shadow:0 0 0 12px rgba(211,46,38,0);}
+    100%{box-shadow:0 0 0 0 rgba(211,46,38,0);}
+  }
+  .hero h1{font-size:clamp(2.8rem,7vw,5.5rem);}
+  .hero h1 .accent{color:var(--red);}
+  .hero p{
+    margin-top:24px;max-width:560px;
+    color:var(--muted);font-size:1.1rem;line-height:1.7;
+  }
+  .hero-ctas{display:flex;gap:16px;margin-top:36px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:16px 30px;border-radius:3px;
+    font-weight:800;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;
+    transition:transform 0.2s, filter 0.2s;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--red);color:var(--off);}
+  .btn-primary:hover{filter:brightness(1.15);}
+  .btn-ghost{border:1px solid rgba(244,241,236,0.25);color:var(--off);}
+  .btn-ghost:hover{border-color:var(--off);}
+  @media(max-width:640px){
+    .hero-inner{padding:60px 5%;}
+    .hero-ctas{flex-direction:column;}
+    .btn{justify-content:center;}
+  }
+
+  /* ===== STAT BAR ===== */
+  .stat-bar{
+    background:var(--surface);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:30px 5%;
+  }
+  .stat-bar-inner{
+    display:flex;justify-content:space-around;flex-wrap:wrap;gap:24px;
+    max-width:1000px;margin:0 auto;text-align:center;
+  }
+  .stat-item .stat-num{
+    font-family:'Anton',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);
+    color:var(--red);letter-spacing:0.02em;
+  }
+  .stat-item .stat-label{
+    font-size:0.78rem;font-weight:600;letter-spacing:0.12em;
+    text-transform:uppercase;color:var(--muted);margin-top:4px;
+  }
+
+  /* ===== SHARED ===== */
+  section{padding:100px 5%;}
+  .label{
+    color:var(--red);font-weight:700;font-size:0.78rem;
+    letter-spacing:0.2em;text-transform:uppercase;
+    display:block;margin-bottom:10px;
+  }
+  .section-h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:20px;}
+  .section-lead{color:var(--muted);font-size:1.05rem;line-height:1.7;max-width:620px;}
+
+  /* ===== AUDIENCE CARDS ===== */
+  .audience{background:var(--surface);}
+  .audience-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);border-radius:4px;overflow:hidden;
+    margin-top:56px;
+  }
+  .audience-card{
+    background:var(--surface);
+    padding:44px 36px;
+    position:relative;
+    transition:background 0.25s;
+  }
+  .audience-card:hover{background:var(--surface-2);}
+  .audience-card .card-icon{
+    font-size:2.2rem;margin-bottom:24px;
+    display:block;line-height:1;
+  }
+  .audience-card h3{font-size:1.5rem;margin-bottom:14px;}
+  .audience-card p{color:var(--muted);line-height:1.65;font-size:0.95rem;}
+  .audience-card .card-tag{
+    display:inline-block;margin-top:20px;
+    font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--red);border:1px solid rgba(211,46,38,0.35);
+    padding:4px 10px;border-radius:2px;
+  }
+  @media(max-width:860px){
+    .audience-grid{grid-template-columns:1fr;}
+  }
+
+  /* ===== WHAT YOU GET ===== */
+  .deliverables-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:24px;
+    margin-top:56px;
+  }
+  .deliv-card{
+    background:var(--surface);border:1px solid var(--line);border-radius:4px;
+    padding:36px 32px;
+    transition:border-color 0.25s;
+  }
+  .deliv-card:hover{border-color:rgba(211,46,38,0.4);}
+  .deliv-icon{
+    width:48px;height:48px;border-radius:3px;
+    background:rgba(211,46,38,0.12);
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.4rem;margin-bottom:20px;
+  }
+  .deliv-card h3{font-size:1.2rem;margin-bottom:10px;}
+  .deliv-card p{color:var(--muted);line-height:1.65;font-size:0.95rem;}
+  @media(max-width:640px){
+    .deliverables-grid{grid-template-columns:1fr;}
+  }
+
+  /* ===== HOW IT WORKS ===== */
+  .how{background:var(--surface);}
+  .steps{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    gap:1px;background:var(--line);
+    border:1px solid var(--line);border-radius:4px;overflow:hidden;
+    margin-top:56px;
+  }
+  .step{
+    background:var(--surface);
+    padding:36px 28px;
+  }
+  .step-num{
+    font-family:'Anton',sans-serif;font-size:3rem;
+    color:rgba(211,46,38,0.25);letter-spacing:0.02em;
+    line-height:1;margin-bottom:18px;
+  }
+  .step h3{font-size:1.1rem;margin-bottom:10px;}
+  .step p{color:var(--muted);font-size:0.9rem;line-height:1.6;}
+  @media(max-width:860px){
+    .steps{grid-template-columns:repeat(2,1fr);}
+  }
+  @media(max-width:480px){
+    .steps{grid-template-columns:1fr;}
+  }
+
+  /* ===== PROOF / SOCIAL PROOF ===== */
+  .proof-band{
+    background:linear-gradient(135deg, var(--navy) 0%, #0f1a28 100%);
+    border-top:1px solid rgba(27,42,65,0.8);
+    border-bottom:1px solid rgba(27,42,65,0.8);
+    padding:80px 5%;
+    text-align:center;
+  }
+  .proof-band h2{font-size:clamp(2.2rem,5vw,4rem);max-width:800px;margin:0 auto 20px;}
+  .proof-band h2 .accent{color:var(--red);}
+  .proof-band p{color:var(--muted);font-size:1.05rem;max-width:540px;margin:0 auto 36px;line-height:1.7;}
+  .proof-stats{
+    display:flex;justify-content:center;flex-wrap:wrap;gap:48px;
+    margin-top:48px;
+  }
+  .proof-stat .n{
+    font-family:'Anton',sans-serif;font-size:clamp(2.5rem,6vw,4rem);
+    color:var(--off);letter-spacing:0.02em;
+  }
+  .proof-stat .n span{color:var(--red);}
+  .proof-stat .l{
+    font-size:0.8rem;font-weight:600;letter-spacing:0.12em;
+    text-transform:uppercase;color:var(--muted);margin-top:6px;
+  }
+
+  /* ===== CTA / CONTACT ===== */
+  .cta-section{
+    text-align:center;
+    padding:120px 5%;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(211,46,38,0.15), transparent 60%),
+      var(--bg);
+  }
+  .cta-section h2{font-size:clamp(2.2rem,5vw,4rem);max-width:700px;margin:0 auto 16px;}
+  .cta-section h2 .accent{color:var(--red);}
+  .cta-section p{color:var(--muted);max-width:500px;margin:0 auto 40px;line-height:1.7;font-size:1.05rem;}
+
+  .book-form{
+    max-width:600px;margin:0 auto;text-align:left;
+    display:flex;flex-direction:column;gap:18px;
+  }
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  @media(max-width:560px){.form-row{grid-template-columns:1fr;}}
+  .form-group{display:flex;flex-direction:column;gap:7px;}
+  .form-group label{
+    font-size:0.78rem;font-weight:700;letter-spacing:0.12em;
+    text-transform:uppercase;color:var(--muted);
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea{
+    background:var(--surface);
+    border:1px solid var(--line);border-radius:3px;
+    color:var(--off);font-family:'Inter',sans-serif;font-size:0.95rem;
+    padding:14px 16px;
+    transition:border-color 0.2s;
+    -webkit-appearance:none;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus{
+    outline:none;border-color:var(--red);
+  }
+  .form-group select option{background:var(--surface);}
+  .form-group textarea{min-height:130px;resize:vertical;}
+  .form-submit{
+    background:var(--red);color:var(--off);border:none;cursor:pointer;
+    padding:18px 32px;border-radius:3px;
+    font-family:'Inter',sans-serif;font-weight:800;font-size:0.85rem;
+    letter-spacing:0.1em;text-transform:uppercase;
+    transition:filter 0.2s, transform 0.2s;
+    width:100%;
+  }
+  .form-submit:hover{filter:brightness(1.15);transform:translateY(-1px);}
+
+  /* ===== FOOTER ===== */
+  footer{
+    background:var(--surface);
+    border-top:1px solid var(--line);
+    padding:60px 5% 40px;
+    display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;
+    align-items:flex-start;
+  }
+  .footer-brand{display:flex;flex-direction:column;gap:14px;}
+  .footer-brand img{width:46px;height:46px;border-radius:50%;}
+  .footer-brand .name{font-family:'Anton',sans-serif;font-size:1.2rem;letter-spacing:0.06em;}
+  .footer-brand .tag{color:var(--muted);font-size:0.85rem;margin-top:2px;}
+  .social-row{display:flex;gap:18px;}
+  .social-row a{
+    width:40px;height:40px;border-radius:50%;
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    font-size:0.8rem;font-weight:800;
+    transition:border-color 0.2s,color 0.2s;
+  }
+  .social-row a:hover{border-color:var(--red);color:var(--red);}
+  .copyright{
+    width:100%;text-align:center;color:var(--muted);
+    font-size:0.78rem;margin-top:30px;letter-spacing:0.04em;
+  }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0SK0WW491E"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0SK0WW491E');
+</script>
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <a href="index.html" class="brand">
+      <img src="logo.jpeg" alt="Slapstick Hockey logo">
+      <span>Slapstick Hockey</span>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html#offer">What We Offer</a></li>
+        <li><a href="events.html">Schedule</a></li>
+        <li><a href="event-coverage.html" class="active">Event Coverage</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </nav>
+  </div>
+  <a href="#book" class="nav-cta">Book Us</a>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<nav class="mobile-nav" id="mobile-nav">
+  <ul>
+    <li><a href="index.html#offer" onclick="closeMobileNav()">What We Offer</a></li>
+    <li><a href="events.html" onclick="closeMobileNav()">Schedule</a></li>
+    <li><a href="event-coverage.html" onclick="closeMobileNav()" style="color:var(--red);">Event Coverage</a></li>
+    <li><a href="about.html" onclick="closeMobileNav()">About</a></li>
+    <li><a href="blog.html" onclick="closeMobileNav()">Blog</a></li>
+  </ul>
+  <a href="#book" class="mobile-cta" onclick="closeMobileNav()">Book Us</a>
+</nav>
+<script>
+  function toggleMobileNav(){
+    var btn = document.getElementById('hamburger');
+    var menu = document.getElementById('mobile-nav');
+    var isOpen = btn.classList.contains('open');
+    if(isOpen){ closeMobileNav(); } else {
+      btn.classList.add('open');
+      menu.style.maxHeight = '400px';
+      menu.style.padding = '20px 5% 24px';
+    }
+  }
+  function closeMobileNav(){
+    var btn = document.getElementById('hamburger');
+    var menu = document.getElementById('mobile-nav');
+    btn.classList.remove('open');
+    menu.style.maxHeight = '0';
+    menu.style.padding = '0 5%';
+  }
+</script>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-eyebrow"><span class="dot"></span> Available for Bookings &middot; 2026</span>
+    <h1>We cover<br>your event.<br><span class="accent">You get the buzz.</span></h1>
+    <p>Slapstick Hockey brings cameras, live commentary, and a content machine to your tournament, charity game, or alumni event. Professional broadcast production — without the TV-budget price tag.</p>
+    <div class="hero-ctas">
+      <a href="#book" class="btn btn-primary">Book Event Coverage</a>
+      <a href="#what-you-get" class="btn btn-ghost">See What's Included</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STAT BAR ===== -->
+<div class="stat-bar">
+  <div class="stat-bar-inner">
+    <div class="stat-item">
+      <div class="stat-num">10M+</div>
+      <div class="stat-label">Views — Single Event</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">80K+</div>
+      <div class="stat-label">Hockey Fans Reached</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">4K</div>
+      <div class="stat-label">Camera Production</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">Live</div>
+      <div class="stat-label">Broadcast Capable</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== WHO WE SERVE ===== -->
+<section class="audience">
+  <span class="label">Who We Work With</span>
+  <h2 class="section-h2">Built for three types of events</h2>
+  <p class="section-lead">We've covered charity games, alumni showcases, and multi-day tournaments across the Southeast and beyond. If it's on ice and it matters, we're in.</p>
+  <div class="audience-grid">
+
+    <div class="audience-card">
+      <span class="card-icon">🏒</span>
+      <h3>Tournaments</h3>
+      <p>Multi-day, multi-rink, high-volume — we've done it. From registration day through the championship game, Slapstick brings broadcast-quality coverage and social clips your teams will actually share.</p>
+      <span class="card-tag">Breakaway Events &bull; Arch Madness &bull; Hotter Than Hell</span>
+    </div>
+
+    <div class="audience-card">
+      <span class="card-icon">❤️</span>
+      <h3>Charity Games</h3>
+      <p>Your cause deserves an audience. We've livestreamed 12-hour marathon games and handled full broadcast production for events that use hockey to raise money, honor veterans, and build community.</p>
+      <span class="card-tag">Huntsville Longest Game &bull; All Veterans Day Game</span>
+    </div>
+
+    <div class="audience-card">
+      <span class="card-icon">⭐</span>
+      <h3>Alumni &amp; Pro Events</h3>
+      <p>The crowd shows up. Make sure the content does too. We've covered NHL Alumni events with broadcast production that turned a single game into over 10 million views across platforms.</p>
+      <span class="card-tag">NHL Alumni Outdoor Classic</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== WHAT YOU GET ===== -->
+<section id="what-you-get">
+  <span class="label">What's Included</span>
+  <h2 class="section-h2">Coverage that actually performs</h2>
+  <p class="section-lead">Every event package includes professional production from a crew that knows hockey — and knows how to make content that moves people.</p>
+  <div class="deliverables-grid">
+
+    <div class="deliv-card">
+      <div class="deliv-icon">📹</div>
+      <h3>Live Broadcast</h3>
+      <p>Full livestream to YouTube with professional commentary. Your players, coaches, and fans can watch in real time from anywhere in the country. We handle the stream — you handle the puck drop.</p>
+    </div>
+
+    <div class="deliv-card">
+      <div class="deliv-icon">🎥</div>
+      <h3>4K 60fps Recorded Footage</h3>
+      <p>Every game captured in stunning 4K at 60 frames per second. Sony FX30 camera production means you walk away with footage that holds up — for reels, recap videos, and sponsor deliverables.</p>
+    </div>
+
+    <div class="deliv-card">
+      <div class="deliv-icon">📱</div>
+      <h3>Social Media Clips</h3>
+      <p>Our clips routinely rack up hundreds of thousands of views. We cut the highlight moments — the goals, the saves, the celebrations — for Instagram Reels, TikTok, and Facebook. Content that spreads.</p>
+    </div>
+
+    <div class="deliv-card">
+      <div class="deliv-icon">🎙️</div>
+      <h3>Live Commentary</h3>
+      <p>On-air personalities who know the game. We bring the energy, the color commentary, and the storytelling that turns a hockey stream into something people actually watch start to finish.</p>
+    </div>
+
+    <div class="deliv-card">
+      <div class="deliv-icon">🏷️</div>
+      <h3>Sponsor Integration</h3>
+      <p>Your event sponsors get real value. Graphic overlays on the broadcast, commentary mentions, and dedicated social clips — we weave your partners into the coverage naturally and professionally.</p>
+    </div>
+
+    <div class="deliv-card">
+      <div class="deliv-icon">👥</div>
+      <h3>Experienced Crew</h3>
+      <p>We run lean and smart. Minimum two-person crew — on-air personality and camera operator — scaling up to a full team with multiple camera ops and a dedicated stream producer for bigger events.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== PROOF BAND ===== -->
+<div class="proof-band">
+  <h2>One event.<br><span class="accent">10 million views.</span></h2>
+  <p>Our coverage of the NHL Alumni Outdoor Classic hit over 10 million views across platforms. That's the kind of reach that sponsors notice and events remember.</p>
+  <div class="proof-stats">
+    <div class="proof-stat">
+      <div class="n">10<span>M+</span></div>
+      <div class="l">Views — NHL Alumni Outdoor Classic</div>
+    </div>
+    <div class="proof-stat">
+      <div class="n">100<span>s of K</span></div>
+      <div class="l">Views Per Social Clip</div>
+    </div>
+    <div class="proof-stat">
+      <div class="n">80<span>K+</span></div>
+      <div class="l">Hockey Fans in Our Audience</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="how">
+  <span class="label">The Process</span>
+  <h2 class="section-h2">From inquiry to ice</h2>
+  <p class="section-lead">Simple. Fast. No surprises. Here's how we go from first contact to game-day coverage.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h3>You Reach Out</h3>
+      <p>Fill out the form below with your event details — date, location, and what you're looking for. We'll follow up fast.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h3>We Talk Scope</h3>
+      <p>A quick call to understand your event, your sponsors, and what you need from coverage. We'll put together a package that fits.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h3>We Show Up</h3>
+      <p>Crew on site, cameras rolling, stream live. You run your event — we make it look and sound great from puck drop to final buzzer.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <h3>Content Goes Live</h3>
+      <p>Highlights and clips hit social within hours. Your players share them. Your sponsors see the views. Your event gets the reach it deserves.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT / BOOK ===== -->
+<section class="cta-section" id="book">
+  <span class="label">Let's Work Together</span>
+  <h2>Book event<br><span class="accent">coverage.</span></h2>
+  <p>Tell us about your event and we'll get back to you within one business day.</p>
+
+  <form action="https://formsubmit.co/info@underhillmedia.com" method="POST" class="book-form">
+    <input type="hidden" name="_subject" value="Event Coverage Inquiry — slapstickhockey.com/event-coverage">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://slapstickhockey.com/event-coverage?sent=1">
+    <input type="hidden" name="_template" value="table">
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="Name" placeholder="Jane Smith" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="Email" placeholder="jane@yourevent.com" required>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="phone">Phone (Optional)</label>
+        <input type="tel" id="phone" name="Phone" placeholder="(555) 000-0000">
+      </div>
+      <div class="form-group">
+        <label for="event-type">Event Type</label>
+        <select id="event-type" name="Event Type" required>
+          <option value="" disabled selected>Select one…</option>
+          <option>Hockey Tournament</option>
+          <option>Charity / Fundraiser Game</option>
+          <option>Alumni / Pro Showcase</option>
+          <option>Other Hockey Event</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="event-date">Event Date</label>
+        <input type="text" id="event-date" name="Event Date" placeholder="e.g. August 15–17, 2026">
+      </div>
+      <div class="form-group">
+        <label for="location">Event Location</label>
+        <input type="text" id="location" name="Location" placeholder="City, State">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="message">Tell us about your event</label>
+      <textarea id="message" name="Message" placeholder="Number of games, expected attendance, sponsors, what you're hoping to accomplish with coverage…" required></textarea>
+    </div>
+
+    <button type="submit" class="form-submit">Send Inquiry →</button>
+  </form>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-brand">
+    <img src="logo.jpeg" alt="Slapstick Hockey">
+    <div>
+      <div class="name">Slapstick Hockey</div>
+      <div class="tag">Hockey Content That Actually Slaps</div>
+    </div>
+    <div class="social-row">
+      <a href="https://www.instagram.com/slapstickhockey/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+      <a href="https://www.tiktok.com/@slapstickhockey" target="_blank" rel="noopener" aria-label="TikTok">TT</a>
+      <a href="https://www.youtube.com/@SlapstickHockey" target="_blank" rel="noopener" aria-label="YouTube">YT</a>
+      <a href="https://www.facebook.com/people/Slapstick-Hockey/61586169273482/" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
+    </div>
+  </div>
+  <nav aria-label="Footer navigation">
+    <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;">
+      <li><a href="index.html" style="color:var(--muted);font-size:0.88rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s;" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--muted)'">Home</a></li>
+      <li><a href="events.html" style="color:var(--muted);font-size:0.88rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s;" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--muted)'">Schedule</a></li>
+      <li><a href="event-coverage.html" style="color:var(--red);font-size:0.88rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">Event Coverage</a></li>
+      <li><a href="about.html" style="color:var(--muted);font-size:0.88rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s;" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--muted)'">About</a></li>
+      <li><a href="blog.html" style="color:var(--muted);font-size:0.88rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s;" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--muted)'">Blog</a></li>
+    </ul>
+  </nav>
+  <p class="copyright">&copy; 2026 Slapstick Hockey / Underhill Media. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
