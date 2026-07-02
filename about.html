@@ -329,6 +329,7 @@
   gtag('js', new Date());
   gtag('config', 'G-0SK0WW491E');
 </script>
+<style>@media(max-width:860px){header{position:fixed!important;top:0;left:0;right:0;width:100%;z-index:50;}body{padding-top:74px;}.mobile-nav{position:fixed!important;top:74px;left:0;right:0;width:100%;z-index:49;}.mobile-partner-btn{display:inline-flex!important;align-items:center;background:var(--red);color:var(--off);padding:9px 16px;border-radius:3px;font-weight:800;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;}.nav-right{display:flex;align-items:center;gap:12px;}}</style>
 </head>
 <body>
 
@@ -352,9 +353,12 @@
     </nav>
   </div>
   <a href="index.html#contact" class="nav-cta">Partner With Us</a>
-  <button class="hamburger" id="hamburger" aria-label="Open menu" onclick="toggleMobileNav()">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="nav-right">
+    <a href="#contact" class="mobile-partner-btn" style="display:none;">Book Us</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </header>
 <nav class="mobile-nav" id="mobile-nav">
   <ul>
