@@ -685,14 +685,7 @@
 <section class="hero">
   <div class="hero-parallax-glow"></div>
   <div class="hero-parallax-lines"></div>
-  <!-- SVG decorative deco in hero -->
-  <div class="deco-layer" aria-hidden="true">
-    <svg class="deco-stick" data-rot="-22" style="width:70px;top:8%;right:12%;color:var(--off);" aria-hidden="true"><use href="#ico-stick"/></svg>
-    <svg class="deco-stick" data-rot="15" style="width:50px;top:55%;right:5%;color:var(--red);" aria-hidden="true"><use href="#ico-stick"/></svg>
-    <svg class="deco-mic" data-rot="10" style="width:45px;top:70%;right:22%;color:var(--off);" aria-hidden="true"><use href="#ico-mic"/></svg>
-    <svg class="deco-puck" style="width:60px;top:30%;right:8%;color:var(--off);" aria-hidden="true"><use href="#ico-puck"/></svg>
-  </div>
-  <div class="hero-inner">
+  <!-- SVG decorative deco in hero -->  <div class="hero-inner">
     <div>
       <span class="hero-eyebrow" data-reveal><span class="dot"></span> Available For Partnerships &middot; 2026 Season</span>
       <h1 data-reveal style="transition-delay:0.1s">Your brand,<br>on the<br><span class="accent">broadcast.</span></h1>
@@ -735,12 +728,7 @@
   </div>
 </div>
 
-<section id="offer" style="position:relative;overflow:hidden;">
-  <div class="deco-layer" aria-hidden="true">
-    <svg class="deco-stick" data-rot="35" style="width:55px;bottom:10%;left:2%;color:var(--red);" aria-hidden="true"><use href="#ico-stick"/></svg>
-    <svg class="deco-puck" style="width:70px;top:20%;left:1%;color:var(--off);" aria-hidden="true"><use href="#ico-puck"/></svg>
-  </div>
-  <div class="section-head" data-reveal>
+<section id="offer" style="position:relative;overflow:hidden;">  <div class="section-head" data-reveal>
     <div>
       <span class="label">Work With Us</span>
       <h2><span class="heading-underline">What we offer</span></h2>
@@ -810,11 +798,7 @@
   </div>
 </section>
 
-<section id="upcoming" style="position:relative;overflow:hidden;">
-  <div class="deco-layer" aria-hidden="true">
-    <svg class="deco-mic" data-rot="-15" style="width:40px;top:10%;right:3%;color:var(--red);" aria-hidden="true"><use href="#ico-mic"/></svg>
-  </div>
-  <div class="section-head" data-reveal>
+<section id="upcoming" style="position:relative;overflow:hidden;">  <div class="section-head" data-reveal>
     <div>
       <span class="label">On The Road</span>
       <h2><span class="heading-underline">Where we're headed</span></h2>
@@ -1001,16 +985,7 @@
 
 <!-- ===== STICKY ON-AIR SECTION ===== -->
 <div class="on-air-sticky-wrap" id="on-air-sticky-wrap">
-  <div class="on-air-sticky">
-    <div class="deco-layer" aria-hidden="true">
-      <svg class="deco-stick" data-rot="-30" style="width:80px;top:5%;left:4%;color:var(--off);" aria-hidden="true"><use href="#ico-stick"/></svg>
-      <svg class="deco-stick" data-rot="20" style="width:60px;bottom:8%;right:4%;color:var(--red);" aria-hidden="true"><use href="#ico-stick"/></svg>
-      <svg class="deco-mic" data-rot="-8" style="width:50px;bottom:15%;left:8%;color:var(--off);" aria-hidden="true"><use href="#ico-mic"/></svg>
-      <svg class="deco-mic" data-rot="12" style="width:38px;top:15%;right:8%;color:var(--red);" aria-hidden="true"><use href="#ico-mic"/></svg>
-      <svg class="deco-puck" style="width:90px;bottom:30%;right:12%;color:var(--off);" aria-hidden="true"><use href="#ico-puck"/></svg>
-      <svg class="deco-puck" style="width:60px;top:40%;left:3%;color:var(--red);" aria-hidden="true"><use href="#ico-puck"/></svg>
-    </div>
-    <div class="on-air-content">
+  <div class="on-air-sticky">    <div class="on-air-content">
       <div class="on-air-badge"><span class="dot"></span> We Are Slapstick Hockey</div>
       <h2 style="font-size:clamp(2.4rem,7vw,5.5rem);">Hockey's<br><span style="color:var(--red);">funniest broadcast.</span></h2>
       <div class="on-air-stat-line">
@@ -1150,15 +1125,6 @@
 }
 
 /* ---- SVG decoration layer ---- */
-.deco-layer{
-  position:absolute;inset:0;pointer-events:none;overflow:hidden;
-  z-index:0;
-}
-.deco-stick,.deco-mic,.deco-puck{
-  position:absolute;
-  opacity:0.06;
-  will-change:transform;
-}
 
 /* ---- Sticky on-air section ---- */
 .on-air-sticky-wrap{
@@ -1277,7 +1243,6 @@
   .on-air-content{position:relative;inset:auto;padding:80px 5% 40px;}
   .on-air-scroll-items{position:relative;inset:auto;padding:20px 5% 80px;gap:24px;}
   .oas-reveal-line{opacity:1;transform:none;transition:none;}
-  .deco-stick,.deco-mic,.deco-puck{display:none;}
   .heading-underline::after{transition:none;width:100%;}
 }
 </style>
@@ -1358,15 +1323,6 @@
       if(glow)  glow.style.transform  = `translateY(${y*0.35}px)`;
       if(lines) lines.style.transform = `translateY(${y*0.18}px)`;
       /* parallax on SVG deco items */
-      document.querySelectorAll('.deco-stick').forEach((el,i)=>{
-        el.style.transform=`translateY(${y*(0.08+i*0.04)}px) rotate(${parseFloat(el.dataset.rot||0)+y*0.02}deg)`;
-      });
-      document.querySelectorAll('.deco-mic').forEach((el,i)=>{
-        el.style.transform=`translateY(${-y*(0.06+i*0.03)}px) rotate(${parseFloat(el.dataset.rot||0)-y*0.015}deg)`;
-      });
-      document.querySelectorAll('.deco-puck').forEach(el=>{
-        el.style.transform=`translateY(${y*0.12}px)`;
-      });
     }
     window.addEventListener('scroll',onScroll,{passive:true});
     onScroll();
@@ -1448,22 +1404,8 @@
 <svg width="0" height="0" style="position:absolute">
   <defs>
     <!-- Hockey stick: vertical shaft + blade -->
-    <symbol id="ico-stick" viewBox="0 0 60 200">
-      <rect x="26" y="0" width="8" height="160" rx="4" fill="currentColor"/>
-      <rect x="6" y="148" width="48" height="10" rx="4" fill="currentColor"/>
-      <rect x="6" y="148" width="10" height="28" rx="4" fill="currentColor"/>
-    </symbol>
     <!-- Microphone -->
-    <symbol id="ico-mic" viewBox="0 0 60 200">
-      <rect x="22" y="0" width="16" height="80" rx="8" fill="currentColor"/>
-      <path d="M10 60 Q10 110 30 110 Q50 110 50 60" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
-      <rect x="26" y="110" width="8" height="50" fill="currentColor"/>
-      <rect x="12" y="160" width="36" height="6" rx="3" fill="currentColor"/>
-    </symbol>
     <!-- Puck -->
-    <symbol id="ico-puck" viewBox="0 0 80 30">
-      <ellipse cx="40" cy="15" rx="38" ry="13" fill="currentColor"/>
-    </symbol>
   </defs>
 </svg>
 
