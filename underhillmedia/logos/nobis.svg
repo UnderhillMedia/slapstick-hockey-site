@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" fill="none">
+  <!-- Shield outline -->
+  <path d="M100 8 L192 50 L192 150 Q192 220 100 232 Q8 220 8 150 L8 50 Z" stroke="#000" stroke-width="7" fill="white"/>
+  <!-- nobis text -->
+  <text x="100" y="75" font-family="Georgia, serif" font-size="36" font-weight="400" text-anchor="middle" fill="#000" letter-spacing="1">nobis</text>
+  <!-- Deer skull silhouette (simplified) -->
+  <!-- Antlers left -->
+  <path d="M72 105 Q55 85 45 70 Q40 60 48 58 Q54 57 58 65 Q62 72 65 80 Q68 90 70 100" fill="#000"/>
+  <path d="M62 88 Q50 78 42 72 Q36 65 40 60 Q45 56 50 62 Q55 68 60 80" fill="#000"/>
+  <path d="M68 98 Q60 82 55 70 Q50 58 56 54 Q63 51 68 60 Q72 68 72 82" fill="#000"/>
+  <!-- Antlers right -->
+  <path d="M128 105 Q145 85 155 70 Q160 60 152 58 Q146 57 142 65 Q138 72 135 80 Q132 90 130 100" fill="#000"/>
+  <path d="M138 88 Q150 78 158 72 Q164 65 160 60 Q155 56 150 62 Q145 68 140 80" fill="#000"/>
+  <path d="M132 98 Q140 82 145 70 Q150 58 144 54 Q137 51 132 60 Q128 68 128 82" fill="#000"/>
+  <!-- Skull head -->
+  <ellipse cx="100" cy="130" rx="22" ry="20" fill="#000"/>
+  <!-- Skull snout -->
+  <path d="M82 145 Q82 168 88 172 Q92 175 100 175 Q108 175 112 172 Q118 168 118 145 Z" fill="#000"/>
+  <!-- Skull eye sockets (white holes) -->
+  <ellipse cx="91" cy="128" rx="7" ry="8" fill="white"/>
+  <ellipse cx="109" cy="128" rx="7" ry="8" fill="white"/>
+  <!-- Nasal cavity -->
+  <path d="M94 155 L94 162 L98 165 L102 165 L106 162 L106 155 Q103 153 100 153 Q97 153 94 155Z" fill="white"/>
+  <!-- Teeth/jaw drip -->
+  <path d="M88 172 L90 180 L92 172" fill="#000"/>
+  <path d="M96 173 L98 182 L100 173" fill="#000"/>
+  <path d="M100 173 L102 182 L104 173" fill="#000"/>
+  <path d="M108 172 L110 180 L112 172" fill="#000"/>
+</svg>

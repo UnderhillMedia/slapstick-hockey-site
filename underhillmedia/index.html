@@ -45,7 +45,7 @@
         { "@type": "Country", "name": "United States" }
       ],
       "serviceType": ["Wedding Videography","Corporate Video Production","Sports Event Videography","Real Estate Videography","Concert Videography","Legal Videography"],
-      "sameAs": ["https://www.youtube.com/@UnderhillMedia","https://www.instagram.com/underhillmedia/","https://www.linkedin.com/company/underhill-media"]
+      "sameAs": ["https://www.youtube.com/@Underhill_Media","https://www.instagram.com/underhillmedia/","https://www.linkedin.com/company/underhill-media"]
     },
     {
       "@type": "Person",
@@ -183,7 +183,7 @@ nav a:hover { opacity:1; }
   min-height:100vh;
   display:flex; flex-direction:column; align-items:center; justify-content:center;
   text-align:center;
-  padding:120px 5% 80px;
+  padding:80px 5% 60px;
   position:relative;
   overflow:hidden;
 }
@@ -253,11 +253,43 @@ nav a:hover { opacity:1; }
   box-shadow:0 40px 120px rgba(0,0,0,0.6);
 }
 .hero-reel-wrap iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+
+/* ── VIDEO LIGHTBOX ── */
+.vid-lightbox {
+  display:none; position:fixed; inset:0; z-index:9999;
+  background:rgba(0,0,0,0.95);
+  align-items:center; justify-content:center;
+  flex-direction:column;
+}
+.vid-lightbox.open { display:flex; }
+.vid-lightbox-inner {
+  position:relative; width:92vw; max-width:900px;
+  aspect-ratio:16/9;
+}
+.vid-lightbox-inner iframe {
+  position:absolute; inset:0; width:100%; height:100%; border:0; border-radius:8px;
+}
+.vid-lightbox-close {
+  position:absolute; top:-44px; right:0;
+  width:36px; height:36px; border-radius:50%;
+  background:rgba(255,255,255,0.1); border:none; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  color:#fff; font-size:1.1rem; line-height:1;
+  transition:background 0.2s;
+}
+.vid-lightbox-close:hover { background:rgba(255,255,255,0.2); }
 .reel-placeholder {
   position:absolute; inset:0;
   display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px;
   background:linear-gradient(135deg, #111 0%, #0a0a0a 100%);
+  overflow:hidden;
 }
+.reel-placeholder .reel-thumb {
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; opacity:0.45;
+  transition:opacity 0.3s, transform 0.4s;
+}
+.hero-reel-wrap:hover .reel-thumb { opacity:0.6; transform:scale(1.03); }
 .play-btn {
   width:72px; height:72px; border-radius:50%;
   background:var(--grad);
@@ -277,24 +309,40 @@ nav a:hover { opacity:1; }
 
 /* ── TRUSTED BY ── */
 .trusted {
-  padding:60px 5%;
+  padding:60px 0;
   border-top:1px solid var(--line);
   border-bottom:1px solid var(--line);
+  overflow:hidden;
 }
 .trusted-label {
   text-align:center; font-size:0.65rem; font-weight:700;
   letter-spacing:0.24em; text-transform:uppercase; color:var(--accent);
   margin-bottom:40px;
 }
+/* Marquee track */
+.trusted-track-outer {
+  overflow:hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+}
 .trusted-logos {
-  display:flex; align-items:center; justify-content:center;
-  flex-wrap:wrap; gap:36px 52px;
+  display:flex; align-items:center;
+  gap:52px;
+  width:max-content;
+  animation: marquee 30s linear infinite;
+  will-change: transform;
+}
+.trusted-logos:hover { animation-play-state: paused; }
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 .trusted-tile {
   display:flex; flex-direction:column; align-items:center; gap:8px;
-  opacity:0.4; transition:opacity 0.25s;
+  opacity:0.45; transition:opacity 0.25s;
+  flex-shrink:0;
 }
-.trusted-tile:hover { opacity:0.85; }
+.trusted-tile:hover { opacity:0.9; }
 .trusted-tile img {
   height:48px; width:auto; max-width:130px;
   object-fit:contain;
@@ -314,7 +362,7 @@ nav a:hover { opacity:1; }
 
 /* ── STATEMENT SECTION ── */
 .statement {
-  padding:160px 5%;
+  padding:60px 5%;
   text-align:center;
   background:var(--black);
   position:relative;
@@ -343,7 +391,7 @@ nav a:hover { opacity:1; }
 
 /* ── SERVICES ── */
 .services-section {
-  padding:140px 5%;
+  padding:80px 5%;
 }
 .section-eyebrow {
   font-size:0.68rem; font-weight:700; letter-spacing:0.24em; text-transform:uppercase;
@@ -383,7 +431,7 @@ nav a:hover { opacity:1; }
   border:1px solid rgba(255,90,31,0.25);
   display:flex; align-items:center; justify-content:center;
   margin-bottom:24px;
-  font-size:1.2rem;
+  color:var(--accent);
 }
 .service-num {
   font-size:0.62rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase;
@@ -404,12 +452,36 @@ nav a:hover { opacity:1; }
   width:4px; height:4px; border-radius:50%;
   background:rgba(255,255,255,0.2);
 }
+/* Service card video preview */
+.svc-video-wrap {
+  position:relative; width:100%; aspect-ratio:16/9;
+  border-radius:10px; overflow:hidden; margin-top:24px;
+  background:#111; cursor:pointer;
+}
+.svc-video-thumb {
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; transition:transform 0.4s ease;
+}
+.svc-video-wrap:hover .svc-video-thumb { transform:scale(1.04); }
+.svc-play-btn {
+  position:absolute; top:50%; left:50%;
+  transform:translate(-50%,-50%) scale(0.9);
+  width:44px; height:44px; border-radius:50%;
+  background:var(--grad); display:flex; align-items:center; justify-content:center;
+  box-shadow:0 6px 20px rgba(255,90,31,0.5);
+  transition:transform 0.25s, box-shadow 0.25s;
+  pointer-events:none;
+}
+.svc-video-wrap:hover .svc-play-btn { transform:translate(-50%,-50%) scale(1); box-shadow:0 10px 30px rgba(255,90,31,0.65); }
+.svc-play-btn svg { width:16px; height:16px; fill:#fff; margin-left:3px; }
+.svc-video-wrap iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+.svc-overlay { position:absolute; inset:0; }
 @media(max-width:900px) { .services-grid { grid-template-columns:repeat(2,1fr); } }
 @media(max-width:560px) { .services-grid { grid-template-columns:1fr; } .service-card { padding:36px 28px; } }
 
 /* ── PORTFOLIO ── */
 .portfolio-section {
-  padding:140px 5%;
+  padding:80px 5%;
   background:var(--grey);
   border-top:1px solid var(--line);
 }
@@ -486,7 +558,7 @@ nav a:hover { opacity:1; }
 
 /* ── PROCESS ── */
 .process-section {
-  padding:140px 5%;
+  padding:80px 5%;
   background:var(--grey);
   border-top:1px solid var(--line);
   border-bottom:1px solid var(--line);
@@ -516,7 +588,7 @@ nav a:hover { opacity:1; }
 
 /* ── STATS ── */
 .stats-section {
-  padding:140px 5%;
+  padding:80px 5%;
   text-align:center;
 }
 .stats-label {
@@ -551,7 +623,7 @@ nav a:hover { opacity:1; }
 
 /* ── ABOUT ── */
 .about-section {
-  padding:160px 5%;
+  padding:80px 5%;
   background:var(--grey);
   border-top:1px solid var(--line);
 }
@@ -577,7 +649,7 @@ nav a:hover { opacity:1; }
 .social-pill:hover { border-color:rgba(255,255,255,0.35); background:rgba(255,255,255,0.04); color:var(--white); }
 
 /* ── SERVICE AREAS ── */
-.areas-section { padding:140px 5%; }
+.areas-section { padding:80px 5%; }
 .areas-grid {
   display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
   max-width:1040px; margin:0 auto;
@@ -601,7 +673,7 @@ nav a:hover { opacity:1; }
 
 /* ── LINKEDIN CTA ── */
 .linkedin-section {
-  padding:120px 5%; text-align:center;
+  padding:80px 5%; text-align:center;
   background:var(--grey);
   border-top:1px solid var(--line);
   border-bottom:1px solid var(--line);
@@ -624,7 +696,7 @@ nav a:hover { opacity:1; }
 .btn-linkedin:hover { background:#005f94; transform:translateY(-2px); }
 
 /* ── FAQ ── */
-.faq-section { padding:140px 5%; }
+.faq-section { padding:80px 5%; }
 .faq-inner { max-width:760px; margin:0 auto; }
 .faq-item { border-bottom:1px solid var(--line); }
 .faq-item:first-child { border-top:1px solid var(--line); }
@@ -650,7 +722,7 @@ nav a:hover { opacity:1; }
 
 /* ── CONTACT ── */
 .contact-section {
-  padding:140px 5%;
+  padding:80px 5%;
   background:var(--grey);
   border-top:1px solid var(--line);
 }
@@ -723,6 +795,9 @@ footer {
   flex-wrap:wrap; gap:14px; padding-top:32px; border-top:1px solid var(--line);
 }
 .footer-bottom p { color:var(--muted); font-size:0.74rem; }
+.footer-areas { font-size:0.74rem; color:var(--muted); }
+.footer-areas a { color:var(--muted); border-bottom:1px solid rgba(255,255,255,0.1); transition:color 0.2s; }
+.footer-areas a:hover { color:var(--white); }
 .footer-socials { display:flex; gap:8px; }
 .footer-socials a {
   width:32px; height:32px; border-radius:50%;
@@ -781,6 +856,7 @@ footer {
   </div>
   <div class="hero-reel-wrap reveal delay-4" id="hero-reel">
     <div class="reel-placeholder" id="reel-placeholder">
+      <img class="reel-thumb" src="https://img.youtube.com/vi/DHv_sudZE2s/maxresdefault.jpg" alt="Underhill Media reel thumbnail">
       <div class="play-btn"></div>
       <span class="reel-label">Watch the Reel</span>
     </div>
@@ -790,22 +866,41 @@ footer {
 <!-- TRUSTED BY -->
 <div class="trusted reveal">
   <p class="trusted-label">Trusted by brands &amp; organizations across the country</p>
-  <div class="trusted-logos">
-    <div class="trusted-tile reveal delay-1"><img src="logos/mensleaguesweaters.png" alt="Men's League Sweaters"><span>Men's League Sweaters</span></div>
-    <div class="trusted-tile reveal delay-2"><img src="logos/prostockhockey.png" alt="Pro Stock Hockey"><span>Pro Stock Hockey</span></div>
-    <div class="trusted-tile reveal delay-3"><img src="logos/lakehour.svg" alt="Lake Hour"><span>Lake Hour</span></div>
-    <div class="trusted-tile reveal delay-4"><img src="logos/breakawayhockey.avif" alt="Breakaway Hockey Tournaments"><span>Breakaway Hockey Tournaments</span></div>
-    <div class="trusted-tile reveal delay-5"><img src="logos/huntsvillehavoc.png" alt="Huntsville Havoc"><span>Huntsville Havoc</span></div>
-    <div class="trusted-tile reveal delay-6"><img src="logos/slapstickhockey.jpeg" alt="Slapstick Hockey"><span>Slapstick Hockey</span></div>
-    <div class="trusted-tile reveal delay-1"><img src="logos/callytourneys.png" alt="Cally Hockey Tournaments"><span>Cally Hockey Tournaments</span></div>
-    <div class="trusted-tile reveal delay-2"><img src="logos/coloradoextreme.webp" alt="Colorado Extreme"><span>Colorado Extreme</span></div>
-    <div class="trusted-tile reveal delay-3"><img src="logos/truehockey.png" alt="True Hockey"><span>True Hockey</span></div>
-    <div class="trusted-tile reveal delay-4"><img src="logos/athl.svg" alt="ATHL"><span>ATHL</span></div>
-    <div class="trusted-tile reveal delay-5"><img src="logos/dawgnation.png" alt="DAWG Nation Hockey Foundation"><span>DAWG Nation Hockey Foundation</span></div>
-    <div class="trusted-tile reveal delay-6"><img src="logos/nhlalumni.webp" alt="NHL Alumni Outdoor Classic"><span>NHL Alumni Outdoor Classic</span></div>
-    <div class="trusted-tile reveal delay-1"><img src="logos/reelhockey.png" alt="Reel Hockey League"><span>Reel Hockey League</span></div>
-    <div class="trusted-tile reveal delay-2"><img src="logos/brieres.png" alt="Briere's Goalie School"><span>Briere's Goalie School</span></div>
-    <div class="trusted-tile reveal delay-3"><img src="logos/nobis.png" alt="Nobis" class="invert"><span>Nobis</span></div>
+  <div class="trusted-track-outer">
+  <div class="trusted-logos" aria-label="Trusted brands">
+    <!-- Set 1 -->
+    <div class="trusted-tile"><img src="logos/mensleaguesweaters.png" alt="Men's League Sweaters"><span>Men's League Sweaters</span></div>
+    <div class="trusted-tile"><img src="logos/prostockhockey.png" alt="Pro Stock Hockey"><span>Pro Stock Hockey</span></div>
+    <div class="trusted-tile"><img src="logos/lakehour.svg" alt="Lake Hour"><span>Lake Hour</span></div>
+    <div class="trusted-tile"><img src="logos/breakawayhockey.avif" alt="Breakaway Hockey Tournaments"><span>Breakaway Hockey Tournaments</span></div>
+    <div class="trusted-tile"><img src="logos/huntsvillehavoc.png" alt="Huntsville Havoc"><span>Huntsville Havoc</span></div>
+    <div class="trusted-tile"><img src="logos/slapstickhockey.jpeg" alt="Slapstick Hockey"><span>Slapstick Hockey</span></div>
+    <div class="trusted-tile"><img src="logos/callytourneys.png" alt="Cally Hockey Tournaments"><span>Cally Hockey Tournaments</span></div>
+    <div class="trusted-tile"><img src="logos/coloradoextreme.webp" alt="Colorado Extreme"><span>Colorado Extreme</span></div>
+    <div class="trusted-tile"><img src="logos/truehockey.png" alt="True Hockey"><span>True Hockey</span></div>
+    <div class="trusted-tile"><img src="logos/athl.svg" alt="ATHL"><span>ATHL</span></div>
+    <div class="trusted-tile"><img src="logos/dawgnation.png" alt="DAWG Nation Hockey Foundation"><span>DAWG Nation Hockey Foundation</span></div>
+    <div class="trusted-tile"><img src="logos/nhlalumni.webp" alt="NHL Alumni Outdoor Classic"><span>NHL Alumni Outdoor Classic</span></div>
+    <div class="trusted-tile"><img src="logos/reelhockey.png" alt="Reel Hockey League"><span>Reel Hockey League</span></div>
+    <div class="trusted-tile"><img src="logos/brieres.png" alt="Briere's Goalie School"><span>Briere's Goalie School</span></div>
+    <div class="trusted-tile"><img src="logos/nobis.png" alt="Nobis" class="invert"><span>Nobis</span></div>
+    <!-- Set 2 (duplicate for seamless loop) -->
+    <div class="trusted-tile" aria-hidden="true"><img src="logos/mensleaguesweaters.png" alt=""><span>Men's League Sweaters</span></div>
+    <div class="trusted-tile" aria-hidden="true"><img src="logos/prostockhockey.png" alt=""><span>Pro Stock Hockey</span></div>
+    <div class="trusted-tile" aria-hidden="true"><img src="logos/lakehour.svg" alt=""><span>Lake Hour</span></div>
+    <div class="trusted-tile" aria-hidden="true"><img src="logos/breakawayhockey.avif" alt=""><span>Breakaway Hockey Tournaments</span></div>
+    <div class="trusted-tile" aria-hidden="true"><img src="logos/huntsvillehavoc.png" alt=""><span>Huntsville Havoc</span></div>
+    <div class="trusted-tile" aria-hidden="true"><img src="logos/slapstickhockey.jpeg" alt=""><span>Slapstick Hockey</span></div>
+    <div class="trusted-tile" aria-hidden="true"><img src="logos/callytourneys.png" alt=""><span>Cally Hockey Tournaments</span></div>
+    <div class="trusted-tile" aria-hidden="true"><img src="logos/coloradoextreme.webp" alt=""><span>Colorado Extreme</span></div>
+    <div class="trusted-tile" aria-hidden="true"><img src="logos/truehockey.png" alt=""><span>True Hockey</span></div>
+    <div class="trusted-tile" aria-hidden="true"><img src="logos/athl.svg" alt=""><span>ATHL</span></div>
+    <div class="trusted-tile" aria-hidden="true"><img src="logos/dawgnation.png" alt=""><span>DAWG Nation Hockey Foundation</span></div>
+    <div class="trusted-tile" aria-hidden="true"><img src="logos/nhlalumni.webp" alt=""><span>NHL Alumni Outdoor Classic</span></div>
+    <div class="trusted-tile" aria-hidden="true"><img src="logos/reelhockey.png" alt=""><span>Reel Hockey League</span></div>
+    <div class="trusted-tile" aria-hidden="true"><img src="logos/brieres.png" alt=""><span>Briere's Goalie School</span></div>
+    <div class="trusted-tile" aria-hidden="true"><img src="logos/nobis.png" alt="" class="invert"><span>Nobis</span></div>
+  </div>
   </div>
 </div>
 
@@ -823,7 +918,7 @@ footer {
   <p class="section-body reveal delay-2">From your wedding day to a courtroom deposition — 10 years of experience behind every lens.</p>
   <div class="services-grid">
     <div class="service-card reveal delay-1">
-      <div class="service-icon">🎞️</div>
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22"><rect x="2" y="5" width="20" height="14" rx="2"/><polyline points="8,5 8,19"/><polyline points="16,5 16,19"/><line x1="2" y1="10" x2="8" y2="10"/><line x1="16" y1="10" x2="22" y2="10"/><line x1="2" y1="14" x2="8" y2="14"/><line x1="16" y1="14" x2="22" y2="14"/></svg></div>
       <span class="service-num">01 · Wedding</span>
       <h3>Wedding Videography</h3>
       <p>Your wedding day moves fast. We capture every moment you'll want to relive — from the first look to the last dance.</p>
@@ -833,9 +928,14 @@ footer {
         <li>Raw footage delivery</li>
         <li>Drone add-on available</li>
       </ul>
+      <div class="svc-video-wrap" onclick="playSvcVideo(this,'mGqOIX195SI')">
+        <img class="svc-video-thumb" src="https://img.youtube.com/vi/mGqOIX195SI/hqdefault.jpg" alt="Wedding video example">
+        <div class="svc-overlay"></div>
+        <div class="svc-play-btn"><svg viewBox="0 0 16 16"><path d="M3 2l11 6-11 6V2z"/></svg></div>
+      </div>
     </div>
     <div class="service-card reveal delay-2">
-      <div class="service-icon">🎬</div>
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22"><polygon points="23,7 16,12 23,17"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
       <span class="service-num">02 · Corporate</span>
       <h3>Corporate &amp; Commercial</h3>
       <p>Brand films, testimonials, product launches, and training content that looks as sharp as your business.</p>
@@ -847,7 +947,7 @@ footer {
       </ul>
     </div>
     <div class="service-card reveal delay-3">
-      <div class="service-icon">🏒</div>
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/><path d="M8 12h4"/></svg></div>
       <span class="service-num">03 · Sports &amp; Events</span>
       <h3>Sports &amp; Event Coverage</h3>
       <p>Broadcast-quality cameras on location. Highlight reels and recaps your audience will actually watch.</p>
@@ -857,9 +957,14 @@ footer {
         <li>Multi-camera setups</li>
         <li>Same-day turnaround available</li>
       </ul>
+      <div class="svc-video-wrap" onclick="playSvcVideo(this,'o5SvCJfKA1s')">
+        <img class="svc-video-thumb" src="https://img.youtube.com/vi/o5SvCJfKA1s/hqdefault.jpg" alt="Sports video example">
+        <div class="svc-overlay"></div>
+        <div class="svc-play-btn"><svg viewBox="0 0 16 16"><path d="M3 2l11 6-11 6V2z"/></svg></div>
+      </div>
     </div>
     <div class="service-card reveal delay-1">
-      <div class="service-icon">🏠</div>
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/><polyline points="9,21 9,12 15,12 15,21"/></svg></div>
       <span class="service-num">04 · Real Estate</span>
       <h3>Real Estate Video</h3>
       <p>Listings with video sell faster. Cinematic walk-throughs and aerial drone footage that make properties impossible to scroll past.</p>
@@ -869,9 +974,14 @@ footer {
         <li>Agent profile videos</li>
         <li>24–48hr turnaround</li>
       </ul>
+      <div class="svc-video-wrap" onclick="playSvcVideo(this,'lOrx-1sMvW4')">
+        <img class="svc-video-thumb" src="https://img.youtube.com/vi/lOrx-1sMvW4/hqdefault.jpg" alt="Real estate video example">
+        <div class="svc-overlay"></div>
+        <div class="svc-play-btn"><svg viewBox="0 0 16 16"><path d="M3 2l11 6-11 6V2z"/></svg></div>
+      </div>
     </div>
     <div class="service-card reveal delay-2">
-      <div class="service-icon">🎵</div>
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
       <span class="service-num">05 · Concert &amp; Live</span>
       <h3>Concert &amp; Live Events</h3>
       <p>The Shoals is music history. We shoot concerts and live performances with the energy they deserve — multi-cam, audio synced.</p>
@@ -883,7 +993,7 @@ footer {
       </ul>
     </div>
     <div class="service-card reveal delay-3">
-      <div class="service-icon">⚖️</div>
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22"><line x1="12" y1="3" x2="12" y2="21"/><path d="M5 21h14"/><path d="M3 8l4-4 4 4"/><path d="M17 8l-4-4-4 4"/><line x1="3" y1="12" x2="9" y2="12"/><line x1="15" y1="12" x2="21" y2="12"/></svg></div>
       <span class="service-num">06 · Legal</span>
       <h3>Legal Videography</h3>
       <p>Court-admissible video documentation handled with precision. Depositions, day-in-the-life films, and scene documentation.</p>
@@ -893,6 +1003,11 @@ footer {
         <li>Settlement documentaries</li>
         <li>Scene documentation</li>
       </ul>
+      <div class="svc-video-wrap" onclick="playSvcVideo(this,'Su8HkW3Am2w')">
+        <img class="svc-video-thumb" src="https://img.youtube.com/vi/Su8HkW3Am2w/hqdefault.jpg" alt="Legal video example">
+        <div class="svc-overlay"></div>
+        <div class="svc-play-btn"><svg viewBox="0 0 16 16"><path d="M3 2l11 6-11 6V2z"/></svg></div>
+      </div>
     </div>
   </div>
 </section>
@@ -962,8 +1077,8 @@ footer {
       <div class="portfolio-iframe-wrap"></div>
     </div>
 
-    <div class="portfolio-card reveal delay-2" data-cat="sports" onclick="playPortfolioVideo(this,'VIDEO_ID_5')">
-      <div class="portfolio-placeholder"><span class="portfolio-placeholder-icon">🎬</span></div>
+    <div class="portfolio-card reveal delay-2" data-cat="sports" onclick="playPortfolioVideo(this,'WUUCqzyH3lE')">
+      <img class="portfolio-thumb" src="https://img.youtube.com/vi/WUUCqzyH3lE/hqdefault.jpg" alt="NHL Alumni Outdoor Classic">
       <div class="portfolio-overlay">
         <div class="portfolio-play"></div>
         <div class="portfolio-meta">
@@ -989,6 +1104,9 @@ footer {
   </div>
 </section>
 <script>
+function playSvcVideo(wrap, id) {
+  openLightbox(id);
+}
 function playPortfolioVideo(card, id) {
   if(!id || id.startsWith('VIDEO_ID')) return;
   var wrap = card.querySelector('.portfolio-iframe-wrap');
@@ -996,7 +1114,7 @@ function playPortfolioVideo(card, id) {
   if(wrap.style.display === 'block') return;
   wrap.style.display = 'block';
   overlay.style.display = 'none';
-  wrap.innerHTML = '<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1" allow="autoplay; fullscreen" allowfullscreen></iframe>';
+  wrap.innerHTML = '<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&playsinline=1&modestbranding=1&rel=0&color=white" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
 }
 function filterPortfolio(cat, btn) {
   document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
@@ -1072,7 +1190,7 @@ function filterPortfolio(cat, btn) {
     <p class="reveal delay-3">From corporate shoots in Huntsville's growing tech corridor to weddings on the Tennessee River to concert stages in the birthplace of music — I've shot it all and I love every bit of it.</p>
     <p class="reveal delay-4">I also run Slapstick Hockey, a national hockey media brand with 80K+ followers, which means I'm just as comfortable with broadcast-style live production as I am with intimate editorial work.</p>
     <div class="about-socials reveal delay-5">
-      <a href="https://www.youtube.com/@UnderhillMedia" target="_blank" rel="noopener" class="social-pill">
+      <a href="https://www.youtube.com/@Underhill_Media" target="_blank" rel="noopener" class="social-pill">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
         YouTube
       </a>
@@ -1268,7 +1386,7 @@ function filterPortfolio(cat, btn) {
         <li><a href="#about">About Nate</a></li>
         <li><a href="#contact">Book Now</a></li>
         <li><a href="https://www.instagram.com/underhillmedia/" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="https://www.youtube.com/@UnderhillMedia" target="_blank" rel="noopener">YouTube</a></li>
+        <li><a href="https://www.youtube.com/@Underhill_Media" target="_blank" rel="noopener">YouTube</a></li>
         <li><a href="https://www.linkedin.com/company/underhill-media" target="_blank" rel="noopener">LinkedIn</a></li>
         <li><a href="mailto:info@underhillmedia.com">info@underhillmedia.com</a></li>
         <li><a href="tel:+19317036097">(931) 703-6097</a></li>
@@ -1277,8 +1395,9 @@ function filterPortfolio(cat, btn) {
   </div>
   <div class="footer-bottom">
     <p>&copy; 2026 Underhill Media · Nate Harber · Huntsville, AL</p>
+    <p class="footer-areas">Service Areas: <a href="/">Huntsville</a> · <a href="/">The Shoals</a> · <a href="/nashville-video-production">Nashville</a> · <a href="/birmingham-video-production">Birmingham</a></p>
     <div class="footer-socials">
-      <a href="https://www.youtube.com/@UnderhillMedia" target="_blank" rel="noopener" aria-label="YouTube">
+      <a href="https://www.youtube.com/@Underhill_Media" target="_blank" rel="noopener" aria-label="YouTube">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
       </a>
       <a href="https://www.instagram.com/underhillmedia/" target="_blank" rel="noopener" aria-label="Instagram">
@@ -1290,6 +1409,14 @@ function filterPortfolio(cat, btn) {
     </div>
   </div>
 </footer>
+
+<!-- VIDEO LIGHTBOX -->
+<div class="vid-lightbox" id="vid-lightbox">
+  <div class="vid-lightbox-inner">
+    <button class="vid-lightbox-close" id="vid-lightbox-close">✕</button>
+    <div id="vid-lightbox-frame"></div>
+  </div>
+</div>
 
 <script>
 // ── MOBILE NAV ──
@@ -1306,14 +1433,30 @@ var revealObserver = new IntersectionObserver(function(entries){
 revealEls.forEach(function(el){ revealObserver.observe(el); });
 
 // ── HERO REEL ──
-var REEL_ID = "YOUR_VIDEO_ID";
+var REEL_ID = "DHv_sudZE2s";
+
+function openLightbox(id) {
+  var lb = document.getElementById('vid-lightbox');
+  var frame = document.getElementById('vid-lightbox-frame');
+  frame.innerHTML = '<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&playsinline=1&modestbranding=1&rel=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:8px;"></iframe>';
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  var lb = document.getElementById('vid-lightbox');
+  document.getElementById('vid-lightbox-frame').innerHTML = '';
+  lb.classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('vid-lightbox-close').addEventListener('click', closeLightbox);
+document.getElementById('vid-lightbox').addEventListener('click', function(e){
+  if(e.target === this) closeLightbox();
+});
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeLightbox(); });
+
 document.getElementById('hero-reel').addEventListener('click', function(){
   if(REEL_ID === "YOUR_VIDEO_ID") return;
-  document.getElementById('reel-placeholder').style.display='none';
-  var f=document.createElement('iframe');
-  f.src="https://www.youtube.com/embed/"+REEL_ID+"?autoplay=1";
-  f.allow="autoplay; fullscreen";
-  this.appendChild(f);
+  openLightbox(REEL_ID);
 });
 
 // ── FAQ ──
@@ -1351,16 +1494,20 @@ document.querySelectorAll('.stat-num[data-suffix="AL"]:not([data-count])').forEa
 // ── STATEMENT WORD HIGHLIGHT ──
 var statementSection = document.querySelector('.statement');
 if(statementSection){
-  window.addEventListener('scroll', function(){
+  function updateStatement(){
     var rect = statementSection.getBoundingClientRect();
-    var progress = 1 - (rect.bottom / (window.innerHeight + rect.height));
+    var sectionH = statementSection.offsetHeight;
+    // progress: 0 when bottom of section hits bottom of viewport, 1 when top hits top
+    var progress = 1 - (rect.bottom / (window.innerHeight + sectionH));
     var words = statementSection.querySelectorAll('.word');
     words.forEach(function(w,i){
-      var threshold = 0.2 + i * 0.15;
+      var threshold = i * 0.18;
       if(progress > threshold) w.classList.add('lit');
       else w.classList.remove('lit');
     });
-  });
+  }
+  window.addEventListener('scroll', updateStatement, {passive:true});
+  updateStatement(); // run once on load in case already in view
 }
 </script>
 </body>
