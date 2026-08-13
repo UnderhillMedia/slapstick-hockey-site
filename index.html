@@ -441,6 +441,31 @@
     display:block;
   }
 
+  /* ===== PROMO BANNER ===== */
+  .promo-banner{
+    background:var(--surface);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:calc(79px + 18px) 24px 32px; /* top pad clears the fixed header */
+    text-align:center;
+  }
+  @media(max-width:780px){ .promo-banner{padding:calc(79px + 14px) 16px 24px;} }
+  .promo-banner-inner{max-width:1100px;margin:0 auto;}
+  .promo-banner a.promo-art{
+    display:block;
+    line-height:0;
+    border-radius:10px;
+    overflow:hidden;
+    border:1px solid var(--line);
+    transition:transform 0.3s,box-shadow 0.3s;
+  }
+  .promo-banner a.promo-art:hover{
+    transform:translateY(-4px);
+    box-shadow:0 18px 44px rgba(0,0,0,0.55);
+  }
+  .promo-banner a.promo-art img{width:100%;height:auto;display:block;}
+  .promo-banner .promo-cta{margin-top:22px;}
+
   /* ===== STATS BAND ===== */
   .stats{
     background:var(--surface);
@@ -782,6 +807,18 @@
   }
 </script>
 
+<div class="promo-banner">
+  <div class="promo-banner-inner">
+    <a href="events.html#iron-cup" class="promo-art">
+      <img src="images/rocket-city-iron-cup.jpg" width="1983" height="793" fetchpriority="high"
+           alt="Rocket City Iron Cup — Alabama vs. Auburn, Friday Nov. 20, Huntsville Ice Sports Center, 7:00 PM puck drop. Live on ESPN+ with Mitch Stewart on play-by-play and Jacob Murphy on color.">
+    </a>
+    <div class="promo-cta">
+      <a href="events.html#iron-cup" class="btn btn-primary">Iron Cup Details</a>
+    </div>
+  </div>
+</div>
+
 <section class="hero">
   <div class="hero-parallax-glow"></div>
   <div class="hero-parallax-lines"></div>
@@ -1055,8 +1092,8 @@
       </div>
       <div class="event-info">
         <span class="event-status confirmed">Confirmed</span>
-        <h3>Iron Cup — Alabama vs. Auburn Hockey</h3>
-        <p>ESPN+ &middot; Live Broadcast</p>
+        <h3>Rocket City Iron Cup — Alabama vs. Auburn</h3>
+        <p>Huntsville, AL &middot; ESPN+ &middot; 7:00 PM</p>
       </div>
     </div>
   </div>

@@ -51,9 +51,19 @@
     },
     {
       "@type": "Event",
-      "name": "Iron Cup — Alabama vs. Auburn Hockey",
-      "startDate": "2026-11-20",
-      "description": "Slapstick Hockey covers the first inaugural Iron Cup college hockey rivalry game between Alabama and Auburn, live on ESPN+.",
+      "name": "Rocket City Iron Cup — Alabama vs. Auburn",
+      "startDate": "2026-11-20T19:00:00-06:00",
+      "description": "Slapstick Hockey produces the first inaugural Rocket City Iron Cup, the Alabama–Auburn college hockey rivalry game, live on ESPN+.",
+      "location": {
+        "@type": "Place",
+        "name": "Huntsville Ice Sports Center",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Huntsville",
+          "addressRegion": "AL",
+          "addressCountry": "US"
+        }
+      },
       "organizer": { "@id": "https://slapstickhockey.com/#organization" }
     },
     {
@@ -558,6 +568,7 @@
     border-radius:6px;
     padding:22px 26px;
     transition:border-color 0.25s, transform 0.25s;
+    scroll-margin-top:100px; /* clears the fixed header on #hash jumps */
   }
   .event-row:hover{border-color:rgba(211,46,38,0.4);transform:translateX(4px);}
   .event-row.past{opacity:0.5;}
@@ -753,8 +764,8 @@
       </div>
       <div class="event-row-info">
         <h3>Beer League Tournament</h3>
-        <div class="location">Date: Oct 24</div>
-        <p class="desc">Slapstick Hockey covering a beer league hockey tournament on October 24th.</p>
+        <div class="location">Birmingham, AL &middot; Venue TBA</div>
+        <p class="desc">Slapstick Hockey covering an adult beer league hockey tournament in Birmingham.</p>
       </div>
       <div class="event-row-status">
         <span class="event-status confirmed">Confirmed</span>
@@ -793,16 +804,16 @@
       </div>
     </div>
 
-    <div class="event-row" data-status="confirmed" data-date="2026-11-20">
+    <div class="event-row" id="iron-cup" data-status="confirmed" data-date="2026-11-20">
       <div class="event-date">
         <span class="month">Nov</span>
         <span class="day">20</span>
         <span class="year">2026</span>
       </div>
       <div class="event-row-info">
-        <h3>Iron Cup — Alabama vs. Auburn Hockey</h3>
-        <div class="location">ESPN+ &middot; Live Broadcast</div>
-        <p class="desc">Slapstick Hockey covers the first inaugural Iron Cup, a college hockey rivalry game between Alabama and Auburn. Live on ESPN+.</p>
+        <h3>Rocket City Iron Cup — Alabama vs. Auburn</h3>
+        <div class="location">Huntsville Ice Sports Center &middot; Huntsville, AL &middot; ESPN+</div>
+        <p class="desc">Slapstick Hockey produces the first inaugural Rocket City Iron Cup, the Alabama&ndash;Auburn college hockey rivalry game, live on ESPN+. Friday, Nov. 20 &mdash; 7:00 PM puck drop. Mitch Stewart on play-by-play, Jacob Murphy on color commentary.</p>
       </div>
       <div class="event-row-status">
         <span class="event-status confirmed">Confirmed</span>
@@ -833,7 +844,7 @@
       </div>
       <div class="event-row-info">
         <h3>Breakaway Hockey Winter Classic</h3>
-        <div class="location">Date: Feb 20</div>
+        <div class="location">Wisconsin &middot; Venue TBA</div>
         <p class="desc">Penciled in to cover the Breakaway Hockey Winter Classic tournament.</p>
       </div>
       <div class="event-row-status">
@@ -1108,6 +1119,15 @@
 
   upcoming.forEach(r => list.insertBefore(r, divider));
   past.forEach(r => list.appendChild(r));
+
+  // The browser resolves #hash before this script reorders the list, so the
+  // initial scroll lands on whatever row used to occupy that spot. Re-jump.
+  // A smooth-behavior scroll issued during load gets cancelled, so force 'auto'
+  // and wait a frame for the reordered layout to settle.
+  if(location.hash){
+    const target = document.getElementById(location.hash.slice(1));
+    if(target) requestAnimationFrame(() => target.scrollIntoView({behavior:'auto', block:'start'}));
+  }
 
   // Filter buttons
   document.querySelectorAll('.filter-btn').forEach(btn => {
