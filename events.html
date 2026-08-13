@@ -891,7 +891,7 @@
 
     <div class="past-divider">Past Events</div>
 
-    <div class="event-row" data-status="past">
+    <div class="event-row" data-status="past" data-date="2026-03-08">
       <div class="event-date">
         <span class="month">Mar</span>
         <span class="day">6</span>
@@ -907,7 +907,7 @@
       </div>
     </div>
 
-    <div class="event-row" data-status="past">
+    <div class="event-row" data-status="past" data-date="2025-12-13">
       <div class="event-date">
         <span class="month">Dec</span>
         <span class="day">13</span>
@@ -923,7 +923,7 @@
       </div>
     </div>
 
-    <div class="event-row" data-status="past">
+    <div class="event-row" data-status="past" data-date="2025-11-01">
       <div class="event-date">
         <span class="month">Nov</span>
         <span class="day"></span>
@@ -939,7 +939,7 @@
       </div>
     </div>
 
-    <div class="event-row" data-status="past">
+    <div class="event-row" data-status="past" data-date="2025-07-01">
       <div class="event-date">
         <span class="month">Jul</span>
         <span class="day"></span>
@@ -955,7 +955,7 @@
       </div>
     </div>
 
-    <div class="event-row" data-status="past">
+    <div class="event-row" data-status="past" data-date="2025-07-01">
       <div class="event-date">
         <span class="month">Jul</span>
         <span class="day"></span>
@@ -971,7 +971,7 @@
       </div>
     </div>
 
-    <div class="event-row" data-status="past">
+    <div class="event-row" data-status="past" data-date="2025-05-04">
       <div class="event-date">
         <span class="month">May</span>
         <span class="day">2</span>
@@ -987,7 +987,7 @@
       </div>
     </div>
 
-    <div class="event-row" data-status="past">
+    <div class="event-row" data-status="past" data-date="2026-01-01">
       <div class="event-date">
         <span class="month">Jan</span>
         <span class="day"></span>
@@ -1003,7 +1003,7 @@
       </div>
     </div>
 
-    <div class="event-row" data-status="past">
+    <div class="event-row" data-status="past" data-date="2024-11-01">
       <div class="event-date">
         <span class="month">Nov</span>
         <span class="day"></span>
@@ -1019,7 +1019,7 @@
       </div>
     </div>
 
-    <div class="event-row" data-status="past">
+    <div class="event-row" data-status="past" data-date="2024-07-01">
       <div class="event-date">
         <span class="month">Jul</span>
         <span class="day"></span>
@@ -1079,24 +1079,35 @@
 </section>
 
 <script>
-  // Auto-move events past their date into the Past section
+  // Archive events whose date has passed, then order both groups by date.
+  // data-date is the sort key and uses the END date for multi-day events, so a
+  // tournament stays listed through its final day.
   const list = document.getElementById('event-list');
   const divider = list.querySelector('.past-divider');
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  Array.from(list.querySelectorAll('.event-row[data-date]')).forEach(row => {
-    if(row.dataset.status === 'past') return;
-    const d = new Date(row.dataset.date);
-    d.setHours(0, 0, 0, 0);
+  const rows = Array.from(list.querySelectorAll('.event-row'));
+
+  rows.forEach(row => {
+    if(row.dataset.status === 'past' || !row.dataset.date) return;
+    const d = new Date(row.dataset.date + 'T00:00:00');
     if(d < today) {
       row.dataset.status = 'past';
       row.classList.add('past');
       const badge = row.querySelector('.event-status');
       if(badge) { badge.className = 'event-status past'; badge.textContent = 'Past'; }
-      list.appendChild(row); // move to end, after all static past rows
     }
   });
+
+  const key = row => row.dataset.date || '';
+  const upcoming = rows.filter(r => r.dataset.status !== 'past')
+                       .sort((a, b) => key(a).localeCompare(key(b)));   // soonest first
+  const past     = rows.filter(r => r.dataset.status === 'past')
+                       .sort((a, b) => key(b).localeCompare(key(a)));   // most recent first
+
+  upcoming.forEach(r => list.insertBefore(r, divider));
+  past.forEach(r => list.appendChild(r));
 
   // Filter buttons
   document.querySelectorAll('.filter-btn').forEach(btn => {
