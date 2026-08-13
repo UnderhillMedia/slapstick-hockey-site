@@ -430,6 +430,28 @@
   .split-card p{color:var(--muted);max-width:380px;margin-bottom:24px;line-height:1.6;}
   @media(max-width:780px){ .split{grid-template-columns:1fr;} }
 
+  /* ===== GAMEDAYCAST SHOP ===== */
+  .gdc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .gdc-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:32px 28px;
+    display:flex;flex-direction:column;
+    transition:transform 0.3s,border-color 0.3s;
+  }
+  .gdc-card:hover{transform:translateY(-4px);border-color:rgba(244,241,236,0.2);}
+  .gdc-card .gdc-name{font-size:1.15rem;font-weight:800;margin-bottom:4px;}
+  .gdc-card .gdc-price{font-size:2rem;font-weight:800;color:var(--off);margin-bottom:14px;}
+  .gdc-card .gdc-price span{font-size:0.85rem;color:var(--muted);font-weight:600;}
+  .gdc-card ul{list-style:none;margin:0 0 24px;flex:1;}
+  .gdc-card ul li{color:var(--muted);line-height:1.7;font-size:0.92rem;padding-left:18px;position:relative;}
+  .gdc-card ul li::before{content:"›";position:absolute;left:0;color:var(--red);font-weight:800;}
+  .gdc-card.featured{border-color:rgba(211,46,38,0.5);background:linear-gradient(160deg, rgba(211,46,38,0.12), var(--surface) 60%);}
+  .gdc-free{color:var(--muted);font-size:0.9rem;margin-top:18px;text-align:center;}
+  .gdc-free strong{color:var(--off);}
+  @media(max-width:900px){ .gdc-grid{grid-template-columns:1fr;} }
+
   /* ===== BANNER STRIP ===== */
   .banner-strip{
     width:100%;
@@ -1172,13 +1194,56 @@
       <p>Slapstick Hockey started as a hobby — a camera, a mic, and a love for the game. No big studio, no big budget. Just a passion for capturing the chaos, comedy, and chemistry that happens at the rink.</p>
       <a href="about.html" class="btn btn-primary" style="width:fit-content;">Read More</a>
     </div>
-    <div class="split-card shop" id="shop">
+    <div class="split-card shop">
       <span class="tag">Coming Soon</span>
       <h3>Slapstick<br>Gear is coming</h3>
       <p>We're building out the merch shop. Tees, hats, and the badge sticker you've seen on every water bottle in the rink. Drop your email to get notified when it launches.</p>
       <a href="#" class="btn btn-ghost" style="width:fit-content;">Notify Me</a>
     </div>
   </div>
+</section>
+
+<section id="shop" style="padding-top:0;">
+  <div class="section-head" data-reveal>
+    <div>
+      <span class="label">Shop</span>
+      <h2><span class="heading-underline">Broadcast like we do</span></h2>
+    </div>
+    <p style="color:var(--muted);max-width:420px;">GamedayCast is the software we built to run every Slapstick broadcast — score bug, overlays, stats, and crew tools. Now you can use it for your own games.</p>
+  </div>
+  <div class="gdc-grid" data-stagger>
+    <div class="gdc-card">
+      <div class="gdc-name">Scorebug</div>
+      <div class="gdc-price">$10<span>/mo</span></div>
+      <ul>
+        <li>Broadcast-ready score bug with game &amp; penalty clocks</li>
+        <li>Animated goal takeover banner</li>
+        <li>Drops straight into OBS as a browser source</li>
+      </ul>
+      <a href="https://gamedaycast.com/scorebug.html" class="btn btn-ghost" style="width:100%;text-align:center;">Get Scorebug</a>
+    </div>
+    <div class="gdc-card featured">
+      <div class="gdc-name">Creator</div>
+      <div class="gdc-price">$20<span>/mo</span></div>
+      <ul>
+        <li>Every overlay: lower thirds, stats, sponsor bug &amp; bumper</li>
+        <li>Live stat sheet with league sync (rosters, stats, photos)</li>
+        <li>Broadcast prep + game-day setup checklist</li>
+      </ul>
+      <a href="https://gamedaycast.com/#pricing" class="btn btn-primary" style="width:100%;text-align:center;">Get Creator</a>
+    </div>
+    <div class="gdc-card">
+      <div class="gdc-name">Organization</div>
+      <div class="gdc-price">$69<span>/mo</span></div>
+      <ul>
+        <li>Everything in Creator + unlimited crew seats</li>
+        <li>Custom roles, tagged cues &amp; built-in crew messenger</li>
+        <li>Tournaments &amp; concurrent games</li>
+      </ul>
+      <a href="https://gamedaycast.com/#pricing" class="btn btn-ghost" style="width:100%;text-align:center;">Get Organization</a>
+    </div>
+  </div>
+  <p class="gdc-free" data-reveal>Your <strong>first full game is free</strong> — every feature, whole crew, no card required. Then use code <strong>SLAPSTICK</strong> at checkout for your <strong>first month free</strong>. <a href="https://gamedaycast.com" style="color:var(--red);font-weight:700;">gamedaycast.com</a></p>
 </section>
 
 <section id="partners">
