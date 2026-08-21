@@ -463,6 +463,20 @@
     display:block;
   }
 
+  /* ===== VIDEO EMBED ===== */
+  .video-embed{
+    position:relative;
+    width:100%;
+    max-width:960px;
+    margin:0 auto;
+    aspect-ratio:16/9;
+    border:1px solid var(--line);
+    border-radius:8px;
+    overflow:hidden;
+    background:#000;
+  }
+  .video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+
   /* ===== PROMO BANNER ===== */
   .promo-banner{
     background:var(--surface);
@@ -1029,6 +1043,19 @@
       <h3>Tell your story to our crowd</h3>
       <p>We've worked with foundations like DAWGS Nation to spotlight causes through hockey content that drives awareness and turnout.</p>
     </div>
+  </div>
+</section>
+
+<section id="pitch">
+  <div class="section-head" data-reveal>
+    <div>
+      <span class="label">Why Slapstick</span>
+      <h2><span class="heading-underline">Book us for your next tournament</span></h2>
+    </div>
+    <a href="hockey-tournament-coverage.html" class="view-all">Tournament Coverage</a>
+  </div>
+  <div class="video-embed" data-reveal>
+    <iframe src="https://www.youtube.com/embed/fpBshrNtq5c?rel=0&modestbranding=1" title="Hockey Tournament Broadcasting &amp; Live Streaming — Slapstick Hockey" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
   </div>
 </section>
 
