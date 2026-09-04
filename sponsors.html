@@ -306,7 +306,8 @@
   }
   .tier.featured li{color:rgba(244,241,236,0.82);}
   .tier .sold-out{opacity:0.45;}
-  .tier .avail.sold{color:var(--red);}
+  .tier .avail.sold{color:var(--red);display:flex;align-items:center;gap:11px;}
+  .tier .sold-logo{height:64px;width:auto;display:block;flex:none;}
   @media(max-width:820px){.tier-grid{grid-template-columns:1fr;}}
 
   /* ===== DONATION CALLOUT ===== */
@@ -525,7 +526,10 @@
       <div class="tier-top">
         <div>
           <h3>Presenting Partner</h3>
-          <div class="avail sold">Sold out</div>
+          <div class="avail sold">
+            <img class="sold-logo" src="logos/mensleaguesweaters.png" alt="Men's League Sweaters" width="1819" height="1676">
+            <span>Sold out</span>
+          </div>
         </div>
         <div class="price">$1,500</div>
       </div>
