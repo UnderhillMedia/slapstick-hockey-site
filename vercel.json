@@ -1,5 +1,4 @@
 {
-  "rewrites": [
-    { "source": "/sponsors", "destination": "/sponsors.html" }
-  ]
+  "cleanUrls": true,
+  "trailingSlash": false
 }
