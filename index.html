@@ -508,6 +508,57 @@
   .promo-banner a.promo-art img{width:100%;height:auto;display:block;}
   .promo-banner .promo-cta{margin-top:22px;}
 
+  /* ===== FEATURED REPLAY ===== */
+  .replay-feature{
+    padding:56px 5%;
+    border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg, rgba(211,46,38,0.07), transparent 70%);
+  }
+  .replay-inner{
+    max-width:1200px;margin:0 auto;
+    display:grid;grid-template-columns:1fr 1.35fr;gap:48px;align-items:center;
+  }
+  .replay-copy .replay-label{
+    color:var(--red);font-weight:700;font-size:0.78rem;letter-spacing:0.2em;
+    text-transform:uppercase;display:block;margin-bottom:12px;
+  }
+  .replay-copy h2{font-size:clamp(1.9rem,3.6vw,2.9rem);}
+  .replay-copy p{color:var(--muted);line-height:1.7;margin-top:16px;max-width:460px;}
+  .replay-views{
+    display:flex;align-items:baseline;gap:10px;margin:22px 0 26px;
+    font-weight:700;font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);
+  }
+  .replay-views strong{font-family:'Anton',sans-serif;font-size:2.2rem;letter-spacing:0.02em;color:var(--off);}
+  /* Poster stands in for the iframe until it is clicked, so the YouTube
+     player is not loaded at the top of the page for everyone who never plays it. */
+  .replay-player{
+    position:relative;display:block;width:100%;aspect-ratio:16/9;
+    padding:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;
+    background:#000 center/cover no-repeat;cursor:pointer;
+    transition:transform 0.3s,box-shadow 0.3s;
+  }
+  .replay-player:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(0,0,0,0.55);}
+  .replay-player::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, transparent 55%, rgba(0,0,0,0.55));
+  }
+  .replay-play{
+    position:absolute;z-index:2;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:84px;height:84px;border-radius:50%;background:var(--red);
+    box-shadow:0 10px 30px rgba(0,0,0,0.5);
+  }
+  .replay-play::before{
+    content:"";position:absolute;left:54%;top:50%;transform:translate(-50%,-50%);
+    border-style:solid;border-width:15px 0 15px 25px;
+    border-color:transparent transparent transparent var(--off);
+  }
+  .replay-player iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:3;}
+  @media(max-width:900px){
+    .replay-feature{padding:40px 5%;}
+    .replay-inner{grid-template-columns:1fr;gap:28px;}
+    .replay-player{order:-1;}
+  }
+
   /* ===== STATS BAND ===== */
   .stats{
     background:var(--surface);
@@ -873,6 +924,39 @@
   </div>
 </div>
 
+<!-- ===== FEATURED REPLAY ===== -->
+<section class="replay-feature" id="alabama-replay">
+  <div class="replay-inner">
+    <div class="replay-copy">
+      <span class="replay-label">Watch The Replay</span>
+      <h2>Beer League vs. Alabama Women&rsquo;s Hockey</h2>
+      <p>Our beer league team took on the University of Alabama women&rsquo;s hockey team at the Pelham Civic Center, with full play-by-play and color commentary. The whole broadcast is up on YouTube.</p>
+      <div class="replay-views"><strong>36K+</strong> views and counting</div>
+      <a href="https://www.youtube.com/watch?v=1Prj659VQ7g" target="_blank" rel="noopener" class="btn btn-primary">Watch On YouTube</a>
+    </div>
+    <button type="button" class="replay-player" id="replay-player" data-video="1Prj659VQ7g"
+            style="background-image:url('https://i.ytimg.com/vi/1Prj659VQ7g/maxresdefault.jpg');"
+            aria-label="Play the replay: Beer League vs. Alabama Women's Hockey">
+      <span class="replay-play"></span>
+    </button>
+  </div>
+</section>
+<script>
+  (function(){
+    var p = document.getElementById('replay-player');
+    if(!p) return;
+    p.addEventListener('click', function(){
+      if(p.querySelector('iframe')) return;
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube.com/embed/' + p.dataset.video + '?autoplay=1&rel=0&modestbranding=1';
+      f.title = "Beer League Team vs. Alabama Women's Hockey";
+      f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      f.allowFullscreen = true;
+      p.appendChild(f);
+    });
+  })();
+</script>
+
 <section class="hero">
   <div class="hero-parallax-glow"></div>
   <div class="hero-parallax-lines"></div>
@@ -880,7 +964,7 @@
     <div>
       <span class="hero-eyebrow" data-reveal><span class="dot"></span> Available For Partnerships &middot; 2026 Season</span>
       <h1 data-reveal style="transition-delay:0.1s">Your brand,<br>on the<br><span class="accent">broadcast.</span></h1>
-      <p data-reveal style="transition-delay:0.2s">Slapstick Hockey reaches 80K+ hockey fans across Instagram, TikTok, YouTube and Facebook. We promote products, cover events on location, and tell your charity's story to an audience that's already showing up.</p>
+      <p data-reveal style="transition-delay:0.2s">Slapstick Hockey reaches 86K+ hockey fans across Instagram, TikTok, YouTube and Facebook. We promote products, cover events on location, and tell your charity's story to an audience that's already showing up.</p>
       <div class="hero-ctas" data-reveal style="transition-delay:0.32s">
         <a href="#contact" class="btn btn-primary">Partner With Us</a>
         <a href="#videos" class="btn btn-ghost">See Our Work</a>
@@ -901,19 +985,19 @@
 <div class="stats">
   <div class="stats-inner" data-stagger>
     <div>
-      <div class="stat-num">48K</div>
+      <div class="stat-num">48.9K</div>
       <div class="stat-label">Instagram Followers</div>
     </div>
     <div>
-      <div class="stat-num">25K</div>
+      <div class="stat-num">25.6K</div>
       <div class="stat-label">TikTok Followers</div>
     </div>
     <div>
-      <div class="stat-num">8.8K</div>
+      <div class="stat-num">10K</div>
       <div class="stat-label">Facebook Followers</div>
     </div>
     <div>
-      <div class="stat-num">1.6K</div>
+      <div class="stat-num">1.9K</div>
       <div class="stat-label">YouTube Subscribers</div>
     </div>
   </div>
@@ -1368,7 +1452,7 @@
       <h2 style="font-size:clamp(2.4rem,7vw,5.5rem);">Hockey's<br><span style="color:var(--red);">funniest broadcast.</span></h2>
       <div class="on-air-stat-line">
         <div class="oas-item">
-          <div class="oas-num">80K<span style="font-size:0.5em;color:var(--muted);">+</span></div>
+          <div class="oas-num">86K<span style="font-size:0.5em;color:var(--muted);">+</span></div>
           <div class="oas-label">Fans</div>
         </div>
         <div class="oas-item">
@@ -1395,7 +1479,7 @@
   <div class="contact-inner">
     <span class="label" data-reveal>Let's Talk</span>
     <h2 data-reveal style="transition-delay:0.1s">Book Us or Partner With Us</h2>
-    <p data-reveal style="transition-delay:0.2s">Planning a hockey tournament? Looking for event media coverage? Want to get your brand in front of 80K+ hockey fans? Fill out the form below and we'll get back to you within 24 hours.</p>
+    <p data-reveal style="transition-delay:0.2s">Planning a hockey tournament? Looking for event media coverage? Want to get your brand in front of 86K+ hockey fans? Fill out the form below and we'll get back to you within 24 hours.</p>
     <form data-reveal style="transition-delay:0.3s" action="https://formsubmit.co/info@underhillmedia.com" method="POST" class="book-form">
       <input type="hidden" name="_subject" value="New Slapstick Hockey Inquiry — slapstickhockey.com">
       <input type="hidden" name="_captcha" value="false">
